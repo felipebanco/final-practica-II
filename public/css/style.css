@@ -1,0 +1,80 @@
+body {
+  background: rgb(228, 241, 241);
+  color:rgb(0, 0, 0);
+  font-family: 'Open Sans', sans-serif;
+  max-width: 100vw!important;
+  max-height: 100vh!important;
+  text-emphasis-color: white;
+}
+
+.nav-icon {
+  width: 50px;
+}
+
+
+.edit-btn {
+  background-color: rgb(250, 244, 59);
+  color: #000;
+}
+
+.delete-btn {
+  background-color: #f72828;
+  color: #000;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#message-div {
+  border: 2px solid rgb(238, 199, 26);
+  background-color: #c4a029;
+  padding: 30px;
+}
+.table{
+  
+  padding: 30px
+
+}
+
+.card {
+  text-align: center;
+  padding: 20px;
+  margin: 50px;
+}
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.container-logout{
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.container-logout:hover{
+  transition: all 1.5s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.logout{
+  color: #000;
+}
+.container-table {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.table-contenido{
+  width: 800px;
+}

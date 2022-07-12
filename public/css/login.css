@@ -1,0 +1,7 @@
+body{
+    background: linear-gradient(to right, #1162ac, black);
+}
+.bg{
+    background-image: url(../img/fb.png);
+    background-position: center center;
+}

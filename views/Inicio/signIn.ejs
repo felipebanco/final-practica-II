@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Node.js</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/login.css">
+
+</head> 
+<body>
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+        <div class="row align-items-stretch">
+            <div class="col bg d-none d-lg-block col-md-5"></div>
+            <div class="col bg-white p-5 rounded-end">
+                <div class="text-end">
+                    <img src="img/icon.png" width="48" alt="">
+                </div>
+                <h2 class="fw-bold text-center pt-5 mb-5">INICIO</h2>
+                <form action="./signIn" method="POST">
+                    <div class="row">
+                      <div class="mb-4">
+                          <label for="username" class="form-label"> Usuario </label>
+                          <input type="username" class="form-control" name="username" placeholder="Usuario">
+                      </div>
+                      <div class="mb-4">
+                       <label for="password" class="form-label">Contraseña</label>
+                       <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                      </div>
+                      <div class="float-start">
+                       <button type="submit" class="btn btn-dark">Iniciar Sesion</button>
+                      </div>
+                      <div class="my-3">
+                        <span>¿No tienes cuenta? <a href="./signUp">Regístrate</a> </span> 
+                       </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body> 
+</html>
