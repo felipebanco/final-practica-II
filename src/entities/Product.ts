@@ -14,7 +14,7 @@ class Product {
   price: number;
 
   @Column()
-  categoryId: string;
+  categoryId: string; 
 
   @ManyToOne(() => Category, category => category.products)
   @JoinColumn({ name: "categoryId" })

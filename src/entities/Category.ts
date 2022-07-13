@@ -10,7 +10,7 @@ class Category {
   @Column()
   categoryname: string;
 
-  @OneToMany(() => Product, product => product.category) 
+  @OneToMany(() => Product, products => products.categoryId)
   products: Product[]; 
 
   @CreateDateColumn()

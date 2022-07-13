@@ -13,10 +13,7 @@
           <label for="productname" class="form-label">Nombre de producto</label>
           <input type="text" name="productname" id="productname" class="form-control">
         </div>
-        <div class="col-6">
-          <label for="id" class="form-label">Id</label>
-          <input type="text" name="id" id="id" class="form-control">
-        </div>
+        
       </div>
       <br>
       <div class="row">
@@ -30,7 +27,7 @@
         <select name="categoryId" id="categoryId" class="form-select">
             <option value="" selected disabled>Seleccione categoria</option>
             <% categories.forEach(function(category) { %>
-                <option value="<%= category.categoryname %>">
+                <option value="<%= category.id %>">
                     <%= category.categoryname %>
                 </option>
               <% }) %>

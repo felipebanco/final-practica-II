@@ -3,8 +3,7 @@ import {UserControllers} from "./controllers/UserControllers";
 import ProductControllers from "./controllers/ProductControllers";
 import CategoryControllers from "./controllers/CategoryControllers";
 import { LoginControllers } from "./controllers/LoginControllers";
-import { UserService } from "./services/UserService";
-import { LoginService } from "./services/LoginService";
+
 
 //----------------------------Empleados--------------------------------------------
 const router = Router();

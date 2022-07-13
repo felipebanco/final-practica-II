@@ -10,7 +10,7 @@
     <br>
     <table class="table table-light table-bordered table-hover">
       <thead>
-        <th C>Id</th>
+        <!-- <th C>Id</th> -->
         <th scope="col">Nombre de la categoria</th>
         <th scope="col">Creado</th>
         <th scope="col">Actualizado</th>
@@ -19,9 +19,7 @@
       <tbody>
         <% category.forEach(function(category) { %>
           <tr>
-            <td>
-              <%= category.id%>
-            </td>
+            
             <td>
               <%= category.categoryname.toUpperCase()%>
             </td>

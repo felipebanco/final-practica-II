@@ -1,12 +1,12 @@
 import { getCustomRepository } from "typeorm";
 import { LoginRepository } from "../repositories/LoginRepository";
 import { Login } from "../entities/Login";
-import { response } from "express";
 import bcrypt from 'bcrypt'
 
 interface ILogin {
+    id?: string;
     username: string;
-    password: number;
+    password: string;
     rol: string
   }
 class LoginService {

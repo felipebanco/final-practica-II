@@ -8,8 +8,8 @@ interface ICategory {
 
   }
 class CategoryService {
-      async create({id, categoryname}: ICategory) {
-        if ( !id || !categoryname) {
+      async create({categoryname}: ICategory) {
+        if ( !categoryname) {
           throw new Error("Por favor rellenar todos los campos");
         }
     

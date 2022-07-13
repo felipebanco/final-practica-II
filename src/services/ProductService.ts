@@ -4,26 +4,26 @@ import { Product } from "../entities/Product";
 
 
 interface IProduct {
-    id: string;
+    id?: string;
     productname: string;
     price: number;
     categoryId: string;
   }
   class ProductService {
-    async create({ id,productname, price, categoryId }: IProduct) {
-        if (!id || !productname || !price || !categoryId) {
+    async create({ productname, price, categoryId }: IProduct) {
+        if (!productname || !price || !categoryId) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
         const productsRepository = getCustomRepository(ProductsRepository);
     
-        const productnameAlreadyExists = await productsRepository.findOne({ id });
+        const productnameAlreadyExists = await productsRepository.findOne({ productname });
     
         if (productnameAlreadyExists) {
           throw new Error("El producto ya esta registrado");
         }
   
-        const product = productsRepository.create({ id, productname, price,categoryId});
+        const product = productsRepository.create({ productname, price});
     
         await productsRepository.save(product);
         console.log(product);

@@ -1,14 +1,15 @@
-import {Column,CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn, OneToMany}from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
-
 @Entity("login")
 class Login {
+  @PrimaryGeneratedColumn()
+  id: string;
 
-  @PrimaryColumn()
+  @Column()
   username: string;
 
   @Column()
-  password: number;
+  password: string;
   
   @Column()
   rol: string;
@@ -20,7 +21,9 @@ class Login {
   updated_at: Date;
 
   constructor() {
-
+    if (!this.id) {
+      this.id = uuid();
+    }
   }
   
 }
