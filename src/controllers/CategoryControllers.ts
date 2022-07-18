@@ -3,11 +3,11 @@ import {CategoryService} from "../services/CategoryService";
 class CategoryControllers{
   
     async handleCreateCategory(request: Request, response: Response) {
-        const { categoryname} = request.body;
+        const { name} = request.body;
         const service = new CategoryService();
         try {
           await service.create({
-            categoryname
+            name
           }).then(() => {
             response.render("Category/messageCategory", {
               message: "Categoria registrada exitosamente"
@@ -77,12 +77,12 @@ class CategoryControllers{
       }
     }
     async handleUpdateCategory(request: Request, response: Response) {
-      const { id, categoryname} = request.body;
+      const { id, name} = request.body;
   
       const updateCategoryService = new CategoryService();
   
       try {
-        await updateCategoryService.update({ id, categoryname}).then(() => {
+        await updateCategoryService.update({ id, name}).then(() => {
           response.render("Category/messageCategory", {
             message: "Categoria actualizada correctamente"
           });

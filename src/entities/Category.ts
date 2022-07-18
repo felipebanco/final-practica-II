@@ -1,6 +1,7 @@
 import {Column,CreateDateColumn, Entity, UpdateDateColumn, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Product } from "./Product";
+
 @Entity("categories")
 class Category {
 
@@ -8,10 +9,10 @@ class Category {
   id: string;
 
   @Column()
-  categoryname: string;
+  name: string;
 
-  @OneToMany(() => Product, products => products.categoryId)
-  products: Product[]; 
+  @OneToMany(() => Product, products => products.categoria)
+  producto: Product[]; 
 
   @CreateDateColumn()
   created_at: Date;

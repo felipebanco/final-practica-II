@@ -8,7 +8,7 @@
     </div>
     <br>
     <form action="./editproduct" method="POST">
-      <input type="hidden" name="" value="<%= product.categoryname %>">
+      <input type="hidden" name="" value="<%= product.id%>">
       <div class="row">
         <div class="col-12">
           <label for="productname" class="form-label">Nombre </label>
@@ -16,11 +16,7 @@
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col-6">
-          <label for="id" class="form-label">Id producto</label>
-          <input type="text" name="id" id="id" class="form-control" value="<%= product.id %>">
-        </div>
+      
         <div class="col-6">
           <label for="price" class="form-label">Precio</label>
           <input type="text" name="price" id="price" class="form-control" value="<%= product.price %>">
@@ -28,12 +24,12 @@
       </div>
       <br>
       <div class="col-6">
-        <label for="categoryId" class="form-label">Categoria</label>
-        <select name="categoryId" id="categoryId" class="form-select">
+        <label for="name" class="form-label">Categoria</label>
+        <select name="name" id="name" class="form-select">
             <option value="categoryId" selected disabled>Seleccione categoria</option>
             <% categories.forEach(function(category) { %>
-                <option value="<%= category.id %>">
-                    <%= category.categoryname %>
+                <option value="<%= category.name %>">
+                    <%= category.name %>
                 </option>
               <% }) %>
         </select>

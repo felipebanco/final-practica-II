@@ -14,11 +14,17 @@ class Product {
   price: number;
 
   @Column()
-  categoryId: string; 
+  categoriaId: string; 
 
-  @ManyToOne(() => Category, category => category.products)
-  @JoinColumn({ name: "categoryId" })
-  category: Category[];
+  @ManyToOne(() => Category)
+  // cascade:true
+  @JoinColumn({ name: 'categoriaId'})
+  categoria: Category;
+
+  /* @ManyToOne(() => Category)
+  cascade:true
+  @JoinColumn({ name: "categoriaId" })
+  category: Category[]; */
 
   @CreateDateColumn()
   created_at: Date;

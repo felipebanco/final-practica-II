@@ -22,13 +22,15 @@
           <input type="number" name="price" id="price" class="form-control">
         </div>
       <br>
+      <br>
+      
       <div class="col-6">
-        <label for="categoryId" class="form-label">Categoria</label>
-        <select name="categoryId" id="categoryId" class="form-select">
+        <label for="name" class="form-label">Categoria</label>
+        <select name="name" id="name" class="form-select">
             <option value="" selected disabled>Seleccione categoria</option>
             <% categories.forEach(function(category) { %>
-                <option value="<%= category.id %>">
-                    <%= category.categoryname %>
+                <option value="<%= category.name %>">
+                    <%= category.name %>
                 </option>
               <% }) %>
         </select>

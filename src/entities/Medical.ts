@@ -1,14 +1,14 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("users")
-class User {
+@Entity("medicals")
+class Medical {
 
   @PrimaryColumn()
-  id: string;
+  idMedical: string;
 
   @Column()
-  username: string;
+  medicalname: string;
 
   @Column()
   email: string;
@@ -17,10 +17,13 @@ class User {
   phone: string;
 
   @Column()
-  city: string;
+  address: string;
 
   @Column()
-  state: string;
+  specialty: string;
+
+  @Column()
+  datebirth: Date;
 
   @CreateDateColumn()
   created_at: Date;
@@ -29,11 +32,11 @@ class User {
   updated_at: Date;
 
   constructor() {
-    if (!this.id) {
-      this.id = uuid();
+    if (!this.idMedical) {
+      this.idMedical = uuid();
     }
   }
 
 }
 
-export { User };
+export { Medical };

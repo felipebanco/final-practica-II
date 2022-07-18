@@ -4,24 +4,24 @@ import { Category } from "../entities/Category";
 
 interface ICategory {
     id?: string;
-    categoryname: string;
+    name: string;
 
   }
 class CategoryService {
-      async create({categoryname}: ICategory) {
-        if ( !categoryname) {
+      async create({name}: ICategory) {
+        if ( !name) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
         const categoriesRepository = getCustomRepository(CategoryRepository);
     
-        const categorynameAlreadyExists = await categoriesRepository.findOne({ categoryname });
+        const categorynameAlreadyExists = await categoriesRepository.findOne({ name });
     
         if (categorynameAlreadyExists) {
           throw new Error("El nombre de categoria ya esta registrado");
         }
     
-        const categories = categoriesRepository.create({ categoryname});
+        const categories = categoriesRepository.create({ name});
     
         await categoriesRepository.save(categories);
     
@@ -68,13 +68,13 @@ class CategoryService {
         return categories;
     
       }
-      async update({ id, categoryname }: ICategory) {
+      async update({ id, name }: ICategory) {
         const categoriesRepository = getCustomRepository(CategoryRepository);
     
         const categories = await categoriesRepository
           .createQueryBuilder()
           .update(Category)
-          .set({ categoryname})
+          .set({ name})
           .where("id = :id", { id })
           .execute();
     

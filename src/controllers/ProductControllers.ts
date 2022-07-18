@@ -12,13 +12,13 @@ class ProductControllers{
     response.render("Product/addProduct", {categories})
   }
   async handleCreateProduct(request: Request, response: Response) {
-      const { productname, price, categoryId} = request.body;
+      const { productname, price, name} = request.body;
       const service = new ProductService();
       try {
         await service.create({
           productname,
           price,
-          categoryId
+          name
         }).then(() => {
           response.render("Product/messageProduct", {
             message: "Producto registrado exitosamente"
@@ -98,12 +98,12 @@ class ProductControllers{
   }
   async handleUpdateProduct(request: Request, response: Response) {
     
-    const {  productname, price, categoryId} = request.body;
+    const {  id,productname, price, categoriaId} = request.body;
 
     const updateProductService = new ProductService();
 
     try {
-      await updateProductService.update({ productname, price,categoryId}).then(() => {
+      await updateProductService.update({ id, productname, price,categoriaId}).then(() => {
         response.render("Product/messageProduct", {
           message: "Producto actualizado correctamente"
         });
