@@ -4,26 +4,28 @@ import {PatientService} from "../services/PatientService";
 class PatientControllers{
 
   async handleCreatePatient(request: Request, response: Response) {
-      const { patientname, datebirth,weight, height, species } = request.body;
+      const { patientname, datebirth,weigth, heigth, specie } = request.body;
       const createPatientService = new PatientService();
   
       try {
         await createPatientService.create({
-            patientname,
+          patientname,
             datebirth,
-            weight,
-            height,
-            species,
+            weigth,
+            heigth,
+            specie,
         }).then(() => {
-          response.render("Empleados/message", {
+          response.render("Paciente/message", {
             message: "Usuario registrado exitosamente"
           });
         });
       } catch (err) {
-        response.render("Empleados/message", {
+        response.render("Paciente/message", {
           message: `Error al registrar usuario: ${err.message}`
-        });
+        })
+        console.log(request);
       }
+
   }
   async handleDeletePatient(request: Request, response: Response) {
     const { idPatient } = request.body;
@@ -57,7 +59,7 @@ class PatientControllers{
     const listPatientService = new PatientService();
     const patient = await listPatientService.list();
 
-    return response.render("Empleados/Usuarios", {
+    return response.render("Paciente/listPaciente", {
       patient: patient
     });
   }
@@ -79,11 +81,11 @@ class PatientControllers{
     }
   }
   async handleUpdatePatient(request: Request, response: Response) {
-    const { idPatient, patientname, datebirth ,weight, height, species } = request.body;
+    const { idPatient, patientname, datebirth ,weigth, heigth, specie } = request.body;
     const updatePatientService = new PatientService();
 
     try {
-      await updatePatientService.update({ idPatient, patientname, datebirth ,weight, height, species }).then(() => {
+      await updatePatientService.update({ idPatient, patientname, datebirth ,weigth, heigth, specie }).then(() => {
         response.render("Empleados/message", {
           message: "Usuario actualizado correctamente"
         });

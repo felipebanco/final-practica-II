@@ -5,14 +5,14 @@ import { Patient } from "../entities/Patient";
 interface IPantient {
     idPatient?: string;
     patientname: string;
-    datebirth: Date;
-    weight: string;
-    height: string;
-    species: string;
+    datebirth: string;
+    weigth: string;
+    heigth: string;
+    specie: string;
   }
 class PatientService {
-      async create({ patientname, datebirth,weight, height, species }: IPantient) {
-        if (!patientname || !datebirth || weight || !height || !species) {
+      async create({ patientname, datebirth,weigth, heigth, specie }: IPantient) {
+        if (!patientname || !datebirth || weigth || !heigth || !specie) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -23,14 +23,12 @@ class PatientService {
         if (patientrnameAlreadyExists) {
           throw new Error("El nombre de usuario ya esta registrado");
         }
-    
-        
-    
-        const patient = patientRepository.create({ patientname, datebirth, weight, height, species });
-    
-        await patientRepository.save(patient);
-    
+        const patient = patientRepository.create({ patientname, datebirth, weigth, heigth, specie });
+        const nuevopaciente = await patientRepository.save(patient);
+        console.log(nuevopaciente);
         return patient;
+        
+
       }
       async delete(idPatient: string) {
         const patientRepository = getCustomRepository(PatientsRepository);
@@ -43,6 +41,7 @@ class PatientService {
           .execute();
     
         return patient;
+
       }
       async getData(idPatient: string) {
         const patientRepository = getCustomRepository(PatientsRepository);
@@ -77,13 +76,13 @@ class PatientService {
         return patient;
     
       }
-      async update({ idPatient, patientname, datebirth ,weight, height, species }: IPantient) {
+      async update({ idPatient, patientname, datebirth ,weigth, heigth, specie }: IPantient) {
         const pantientRepository = getCustomRepository(PatientsRepository);
     
         const patient = await pantientRepository
           .createQueryBuilder()
           .update(Patient)
-          .set({ patientname, datebirth ,weight, height, species })
+          .set({ patientname, datebirth ,weigth, heigth, specie })
           .where("id = :id", { idPatient })
           .execute();
     

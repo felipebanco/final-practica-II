@@ -3,15 +3,17 @@ import {UserControllers} from "./controllers/UserControllers";
 import ProductControllers from "./controllers/ProductControllers";
 import CategoryControllers from "./controllers/CategoryControllers";
 import { LoginControllers } from "./controllers/LoginControllers";
+import { PatientControllers } from "./controllers/PatientControllers";
 
 
 //----------------------------Empleados--------------------------------------------
 const router = Router();
 const controllers = new UserControllers();
-
 router.get("/profile", (request, response) => {
   response.render("profile");
 });
+
+
 router.get("/Usuarios",controllers.handleListUser);
 router.get("/add", (request, response) => {
   response.render("Empleados/add");
@@ -46,6 +48,13 @@ router.get("/searchCategory", category.handleSearchCategory);
 router.get("/editCategory", category.handleGetCategory);
 router.post("/edit-category", category.handleUpdateCategory);
 router.post("/delete-category", category.handleDeleteCategory);
+//---------------------------------Paciente-------------------------------------
+const patient = new PatientControllers();
+
+router.get("/listPaciente",patient.handleListPatient);
+router.get("/addPaciente", (request, response) => {
+  response.render("Paciente/addPaciente");});
+router.post("/addPaciente", patient.handleCreatePatient);
 //---------------------------------Sesion----------------------------------------
 
 const login = new LoginControllers();

@@ -1,7 +1,33 @@
 body{
-    background: linear-gradient(to right, #1162ac, black);
+    background-color: #3a9897;
+    align-items: center;
 }
-.bg{
-    background-image: url(../img/fb.png);
-    background-position: center center;
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+}
+.container_form{
+    width: 400px;
+    height: 450px;
+    padding: 20px 30px;
+    background-color: #ffffffb2;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+}
+.icon{
+    font-size: 80px;
+    padding: 20px;
+}
+.avatar{
+    text-align: center;
+}
+.container_form_register{
+    width: 400px;
+    height: 500px;
+    padding: 20px 30px;
+    background-color: #ffffffb2;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }

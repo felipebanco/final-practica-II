@@ -1,3 +1,10 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+}
 body {
   background: rgb(228, 241, 241);
   color:rgb(0, 0, 0);
@@ -45,11 +52,17 @@ body {
   padding: 30px
 
 }
-
+.container_card{
+  display: flex;
+  
+}
 .card {
   text-align: center;
   padding: 20px;
   margin: 50px;
+  overflow: hidden;
+  align-items: center;
+  border: 3px transparent;
 }
 .card:hover{
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;

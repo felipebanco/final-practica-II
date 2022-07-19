@@ -11,16 +11,16 @@ class Patient {
   patientname: string;
 
   @Column()
-  datebirth: Date;
+  datebirth: string;
 
   @Column()
-  weight: string;
+  weigth: string;
 
   @Column()
-  height: string;
+  heigth: string;
 
   @Column()
-  species: string;
+  specie: string;
 
   @CreateDateColumn()
   created_at: Date;
