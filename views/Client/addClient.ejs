@@ -2,55 +2,48 @@
 
 <body>
   <br>
-  <div class="container">
-    <div class="text-center">
-      <h2>Ingresar usuario</h2>
-    </div>
+  <div class="form-register">
+      <h2>Ingresar Cliente</h2>
+      <hr>
+      <br>
     <br>
-    <form action="./addClient" method="POST">
-      <div class="row">
-        <div class="col-12">
-          <label for="clientname" class="form-label">Nombre de usuario</label>
-          <input type="text" name="clientname" id="clientname" class="form-control">
+    <form action="./addClient" method="POST" class="container-form">
+      <div class="container-input">
+        <div class="input">
+          <label for="clientname" class="form-label">Nombre del cliente</label>
+          <input class="controls" type="text" name="clientname" id="clientname" class="form-control">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
+        <div class="input">
           <label for="dni" class="form-label">DNI</label>
-          <input type="text" name="dni" id="dni" class="form-control">
+          <input class="controls" type="text" name="dni" id="dni" class="form-control">
+        </div>        
+      </div>
+      <div class="container-input">
+        <div class="input">
+          <label for="email" class="form-label">Email</label>
+          <input class="controls" type="text" name="email" id="email" class="form-control">
         </div>
-      <br>
-      <div class="row">
-        <div class="col-6">
-          <label for="email" class="form-label">Correo electrónico</label>
-          <input type="text" name="email" id="email" class="form-control">
-        </div>
-        <div class="col-6">
-          <label for="phone" class="form-label">Teléfono</label>
-          <input type="text" name="phone" id="phone" class="form-control">
+        <div class="input">
+          <label for="phone" class="form-label">Telefono</label>
+          <input class="controls" type="text" name="phone" id="phone" class="form-control">
         </div>
       </div>
-      <br>
-      <div class="row">
-        <div class="col-6">
+      <div class="container-input">
+        <div class="input">
           <label for="city" class="form-label">Ciudad</label>
-          <input type="text" name="city" id="city" class="form-control">
-        </div>
-        <div class="row">
-        <div class="col-6">
+          <input class="controls" type="text" name="city" id="city" class="form-control">
+        </div> 
+        <div class="input">
           <label for="state" class="form-label">Estado</label>
-          <input type="text" name="state" id="state" class="form-control">
+          <input class="controls" type="text" name="state" id="state" class="form-control">
         </div>
-      <br>
-      <div class="row">
-        <div class="col-6">
-          <div class="float-start">
-            <button type="submit" class="btn btn-success">Agregar cliente</button>
+      </div>
+      <div class="container-btn">
+          <div>
+            <button type="submit" class="boton">Agregar Cliente</button>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="float-end">
-            <a href="./Usuarios" class="btn btn-success">Volver</a>
+          <div>
+            <a href="./Client" class="boton">Volver</a>
           </div>
         </div>
       </div>
