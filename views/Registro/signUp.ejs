@@ -1,50 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD Node.js</title>
-  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="css/login.css">
+  <script src="https://kit.fontawesome.com/20f8330ac2.js" crossorigin="anonymous"></script>
 
 </head>
-
 <body>
-  <div class="container w-75 bg-primary mt-5 rounded shadow">
-    <div class="row align-items-stretch">
-        <div class="col bg d-none d-lg-block col-md-5"></div>
-        <div class="col bg-white p-5 rounded-end">
-            <div class="text-end">
-                <img src="img/icon.png" width="48" alt="">
+    <div class="container">
+        <div class="container_img">
+            <img src="img/img1.jpg" alt="" width="400px" >
+        </div>
+        <div class="container_form_register">
+            <div class="avatar">
+                <i class="fa-solid fa-user-doctor icon"></i>
             </div>
-            <h2 class="fw-bold text-center pt-5 mb-5">Registrar nuevo usuario</h2>
             <form action="./signUp" method="POST">
                 <div class="row">
-                  <div class="mb-4">
-                      <label for="username" class="form-label"> Usuario </label>
-                      <input type="username" class="form-control" name="username" placeholder="Usuario">
+                  <div class="mb-2">
+                      <label for="name" class="form-label"> Nombre </label>
+                      <input type="name" class="form-control" name="name" placeholder="Nombre">
                   </div>
-                  <div class="mb-4">
+                  <div class="mb-2">
+                    <label for="email" class="form-label"> Correo Electronico </label>
+                    <input type="email" class="form-control" name="email" placeholder="example@mail.com">
+                </div>
+                  <div class="mb-2">
                    <label for="password" class="form-label">Contraseña</label>
                    <input type="password" class="form-control" name="password" placeholder="Contraseña">
                   </div>
-                  <div class="mb-4">
+                  <!-- <div class="mb-2">
                     <label for="rol" class="form-label">Rol</label>
                     <select name="rol" id="rol" class="form-select">
                       <option value="" selected disabled>Seleccione su rol</option>
-                      <option value="Administrador">Administrador</option>
-                      <option value="Empleado">Empleado</option>
+                      <option value="A">Administrador</option>
+                      <option value="E">Empleado</option>
                     </select>
-                   </div>
+                   </div> -->
                   <div class="float-start">
                    <button type="submit" class="btn btn-dark">Registrarse</button>
                   </div>
@@ -55,13 +51,7 @@
             </form>
         </div>
     </div>
-</div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
-  
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body> 
 </html>
