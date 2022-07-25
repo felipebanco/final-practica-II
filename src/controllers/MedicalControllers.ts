@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import {MedicalService} from "../services/MedicalService";
 
-class UserControllers{
+class MedicalControllers{
 
   async handleCreateMedical(request: Request, response: Response) {
       const { medicalname, email, phone, address, specialty,datebirth } = request.body;
-      const createUserService = new MedicalService();
+      const createMedicalService = new MedicalService();
   
       try {
-        await createUserService.create({
+        await createMedicalService.create({
             medicalname,
             email,
             phone,
@@ -21,8 +21,8 @@ class UserControllers{
           });
         });
       } catch (err) {
-        response.render("Empleados/message", {
-          message: `Error al registrar usuario: ${err.message}`
+        response.render("Medical/messageMedical", {
+          message: `Error al registrar medico: ${err.message}`
         });
       }
   }
@@ -33,13 +33,13 @@ class UserControllers{
 
     try {
         await deleteMedicalService.delete(idMedical).then(() => {
-        response.render("Empleados/message", {
-          message: "Usuario eliminado correctamente"
+        response.render("Medical/messageMedical", {
+          message: "Medico eliminado correctamente"
         });
       });
     } catch (err) {
-      response.render("Empleados/message", {
-        message: `Error al eliminar usuario: ${err.message}`
+      response.render("medical/messageMedical", {
+        message: `Error al eliminar Medico: ${err.message}`
       });
     }
   } 
@@ -50,7 +50,7 @@ class UserControllers{
     const getMedicalDataService = new MedicalService();            
     const medical = await getMedicalDataService.getData(idMedical);
 
-    return response.render("Empleados/edit", {
+    return response.render("Medical/editMedical", {
       medical: medical
     }); 
   } 
@@ -58,7 +58,7 @@ class UserControllers{
     const listMedicalService = new MedicalService();
     const medical = await listMedicalService.list();
 
-    return response.render("Empleados/Usuarios", {
+    return response.render("Medical/medical", {
       medical: medical
     });
   }
@@ -74,8 +74,8 @@ class UserControllers{
         search: search
       });
     } catch (err) {
-      response.render("Empleados/message", {
-        message: `Error al buscar usuario: ${err.message}`
+      response.render("Medical/messageMedical", {
+        message: `Error al buscar Medical: ${err.message}`
       });
     }
   }
@@ -85,16 +85,16 @@ class UserControllers{
 
     try {
       await updateMedicalService.update({ idMedical,medicalname, email, phone, address, specialty,datebirth }).then(() => {
-        response.render("Empleados/message", {
-          message: "Usuario actualizado correctamente"
+        response.render("Medical/messageMedical", {
+          message: "Medico actualizado correctamente"
         });
       });
     } catch (err) {
-      response.render("Empleados/message", {
-        message: `Error al actualizar usuario: ${err.message}`
+      response.render("Medical/messageMedical", {
+        message: `Error al actualizar Medico: ${err.message}`
       });
     }
 
   }
 }
-export {UserControllers};
+export {MedicalControllers};

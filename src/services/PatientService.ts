@@ -2,17 +2,17 @@ import { getCustomRepository } from "typeorm";
 import { PatientsRepository } from "../repositories/PatientRepository";
 import { Patient } from "../entities/Patient";
 
-interface IPantient {
+interface IPatient {
     idPatient?: string;
     patientname: string;
-    datebirth: string;
+    datebirth: Date;
     weigth: string;
     heigth: string;
     specie: string;
   }
 class PatientService {
-      async create({ patientname, datebirth,weigth, heigth, specie }: IPantient) {
-        if (!patientname || !datebirth || weigth || !heigth || !specie) {
+      async create({ patientname, datebirth,weigth, heigth, specie }: IPatient) {
+        if (!patientname || !datebirth || !weigth || !heigth || !specie) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -37,7 +37,7 @@ class PatientService {
           .createQueryBuilder()
           .delete()
           .from(Patient)
-          .where("id = :id", { idPatient })
+          .where("idPatient = :idPatient", { idPatient })
           .execute();
     
         return patient;
@@ -66,24 +66,24 @@ class PatientService {
     
         const patient = await patientRepository
           .createQueryBuilder()
-          .where("pantientname like :search", { search: `%${search}%` })
+          .where("patientname like :search", { search: `%${search}%` })
           .orWhere("datebirth like :search", { search: `%${search}%` })
-          .orWhere("weight like :search", { search: `%${search}%` })
-          .orWhere("height like :search", { search: `%${search}%` })
-          .orWhere("species like :search", { search: `%${search}%` })
+          .orWhere("weigth like :search", { search: `%${search}%` })
+          .orWhere("heigth like :search", { search: `%${search}%` })
+          .orWhere("specie like :search", { search: `%${search}%` })
           .getMany();
     
         return patient;
     
       }
-      async update({ idPatient, patientname, datebirth ,weigth, heigth, specie }: IPantient) {
-        const pantientRepository = getCustomRepository(PatientsRepository);
+      async update({ idPatient, patientname, datebirth ,weigth, heigth, specie }: IPatient) {
+        const patientRepository = getCustomRepository(PatientsRepository);
     
-        const patient = await pantientRepository
+        const patient = await patientRepository
           .createQueryBuilder()
           .update(Patient)
           .set({ patientname, datebirth ,weigth, heigth, specie })
-          .where("id = :id", { idPatient })
+          .where("idPatient = :idPatient", { idPatient })
           .execute();
     
         return patient;

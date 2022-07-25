@@ -37,22 +37,22 @@ class ClientService {
     
         return client;
       }
-      async delete(id: string) {
+      async delete(idClient: string) {
         const clientsRepository = getCustomRepository(ClientsRepository);
     
         const client = await clientsRepository
           .createQueryBuilder()
           .delete()
           .from(Client)
-          .where("id = :id", { id })
+          .where("idClient = :idClient", { idClient })
           .execute();
     
         return client;
       }
-      async getData(id: string) {
+      async getData(idClient: string) {
         const clientsRepository = getCustomRepository(ClientsRepository);
     
-        const client = await clientsRepository.findOne(id);
+        const client = await clientsRepository.findOne(idClient);
     
         return client;
       }
@@ -72,7 +72,7 @@ class ClientService {
     
         const client = await clientsRepository
           .createQueryBuilder()
-          .where("username like :search", { search: `%${search}%` })
+          .where("clientname like :search", { search: `%${search}%` })
           .orWhere("dni like :search", { search: `%${search}%` })
           .orWhere("email like :search", { search: `%${search}%` })
           .orWhere("phone like :search", { search: `%${search}%` })

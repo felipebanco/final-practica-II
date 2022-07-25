@@ -1,0 +1,68 @@
+<%- include("../template/navBar") %>
+
+<body>
+  <br>
+  <div class="container">
+    <div class="text-center">
+      <h2>Ingresar Medico</h2>
+    </div>
+    <br>
+    <form action="./addMedical" method="POST">
+      <div class="row">
+        <div class="col-6">
+          <label for="medicalname" class="form-label">Nombre de medico</label>
+          <input type="text" name="medicalname" id="medicalname" class="form-control">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input type="text" name="email" id="email" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="phone" class="form-label">Teléfono</label>
+          <input type="text" name="phone" id="phone" class="form-control">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label for="datebirth" class="form-label">Fecha Nacimiento</label>
+          <input type="date" name="datebirth" id="datebirth" class="form-control">
+        </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label for="address" class="form-label">Direccion</label>
+          <input type="text" name="address" id="address" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="specialty" class="form-label">Especialidad</label>
+          <input type="text" name="specialty" id="specialty" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="float-start">
+            <button type="submit" class="btn btn-success">Agregar Medico</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="float-end">
+            <a href="./medical" class="btn btn-success">Volver</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
+
+</body>
+
+</html>

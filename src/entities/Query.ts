@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("queries")
+@Entity("querys")
 class Query {
 
   @PrimaryColumn()
@@ -11,7 +11,7 @@ class Query {
   queryname: string;
 
   @Column()
-  patienteId: string;
+  patientId: string;
 
   @Column()
   datequery: Date;

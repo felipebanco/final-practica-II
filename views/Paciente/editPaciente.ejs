@@ -1,0 +1,60 @@
+<%- include("../template/navBar") %>
+<body>
+  <br>
+  <div class="container">
+    <div class="text-center">
+      <h2>Editar datos de Paciente</h2>
+    </div>
+    <br>
+    <form action="./edit-patient" method="POST">
+      <input type="hidden" name="idPatient" value="<%= patient.idPatient%>">
+      <div class="row">
+        <div class="col-12">
+          <label for="patientname" class="form-label">Nombre de Paciente</label>
+          <input type="text" name="patientname" id="patientname" class="form-control" value="<%= patient.patientname%>">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label for="datebirth" class="form-label">Fecha de Naciemiento </label>
+          <input type="date" name="datebirth" id="datebirth" class="form-control" value="<%= patient.datebirth%>">
+        </div>
+        <div class="col-6">
+          <label for="weigth" class="form-label">Peso</label>
+          <input type="text" name="weigth" id="weigth" class="form-control" value="<%= patient.weigth%>">
+        </div>
+      </div>
+      <br>
+      <div class="col-6">
+        <label for="heigth" class="form-label">Altura</label>
+        <input type="text" name="heigth" id="heigth" class="form-control" value="<%= patient.heigth%>">
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="specie" class="form-label">Especie</label>
+          <input type="text" name="specie" id="specie" class="form-control" value="<%= patient.specie%>">
+        </div>
+       
+      <div class="row">
+        <div class="col-6">
+          <div class="float-start">
+            <button type="submit" class="btn btn-success">Actualizar Paciente</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="float-end">
+            <a href="./index" class="btn btn-success" >Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

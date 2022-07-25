@@ -1,6 +1,11 @@
 <%- include("../template/navBar") %>
 
 <body>
+  <form class="d-flex" action="./search" method="GET">
+    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="search">
+    <button class="btn secondary-btn" type="submit">Buscar</button>
+  </form>
+</div>
 <br>
   <div class="row container center" >
     <div class="text-center">
@@ -50,14 +55,14 @@
                 <div class="row">
                   <form action="./edit" method="GET">
                     <input type="hidden" name="id" value="<%= user.id %>">
-                    <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
+                    <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i>EDI</button>
                   </form>
                 </div>
                 <div class="row"></div>
                 <div class="row">
                   <form action="./delete-user" method="POST">
-                    <input type="hidden" name="idUser" value="<%= user.idUser %>">
-                    <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
+                    <input type="hidden" name="id" value="<%= user.id%>">
+                    <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i>ELI</button>
                   </form>
                 </div>
               </div>

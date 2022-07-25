@@ -21,12 +21,12 @@ class QueryService {
         const usernameAlreadyExists = await queryRepository.findOne({ queryname });
     
         if (usernameAlreadyExists) {
-          throw new Error("El nombre de usuario ya esta registrado");
+          throw new Error("El nombre de consulta ya esta registrado");
         }
     
 
     
-        const query = queryRepository.create({ queryname, datequery, reason, diagnosis});
+        const query = queryRepository.create({ queryname,patientId, datequery, reason, diagnosis});
     
         await queryRepository.save (query);
     
@@ -84,7 +84,7 @@ class QueryService {
           .createQueryBuilder()
           .update(Query)
           .set({ queryname, datequery, reason, diagnosis })
-          .where("id = :id", { idQuery })
+          .where("idQuery = :idQuery", { idQuery })
           .execute();
     
         return query;

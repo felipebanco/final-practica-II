@@ -1,0 +1,60 @@
+<%- include("../template/navBar") %>
+<body>
+  <br>
+  <div class="container">
+    <div class="text-center">
+      <h2>Editar datos de Consulta</h2>
+    </div>
+    <br>
+    <form action="./edit-query" method="POST">
+      <input type="hidden" name="idQuery" value="<%= query.idQuery%>">
+      <div class="row">
+        <div class="col-12">
+          <label for="queryname" class="form-label">Nombre de Consulta</label>
+          <input type="text" name="queryname" id="queryname" class="form-control" value="<%= query.queryname%>">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label for="patientId" class="form-label">Nombre Paciente </label>
+          <input type="text" name="patientId" id="patientId" class="form-control" value="<%= query.patientId%>">
+        </div>
+        <div class="col-6">
+          <label for="datequery" class="form-label">Fecha Consulta</label>
+          <input type="date" name="datequery" id="datequery" class="form-control" value="<%= query.datequery%>">
+        </div>
+      </div>
+      <br>
+      <div class="col-6">
+        <label for="reason" class="form-label">motivo</label>
+        <input type="text" name="reason" id="reason" class="form-control" value="<%= query.reason%>">
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="diagnosis" class="form-label">Diagnostico</label>
+          <input type="text" name="diagnosis" id="diagnosis" class="form-control" value="<%= query.diagnosis%>">
+        </div>
+       
+      <div class="row">
+        <div class="col-6">
+          <div class="float-start">
+            <button type="submit" class="btn btn-success">Actualizar Consulta</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="float-end">
+            <a href="./index" class="btn btn-success" >Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

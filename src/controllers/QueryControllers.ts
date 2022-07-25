@@ -15,13 +15,13 @@ class QueryControllers{
             reason,
             diagnosis,
         }).then(() => {
-          response.render("Empleados/message", {
-            message: "Usuario registrado exitosamente"
+          response.render("Query/messageQuery", {
+            message: "Consulta registrada exitosamente"
           });
         });
       } catch (err) {
-        response.render("Empleados/message", {
-          message: `Error al registrar usuario: ${err.message}`
+        response.render("Query/messageQuery", {
+          message: `Error al registrar consulta: ${err.message}`
         });
       }
   }
@@ -32,8 +32,8 @@ class QueryControllers{
 
     try {
         await deleteQueryService.delete(idQuery).then(() => {
-        response.render("Empleados/message", {
-          message: "Usuario eliminado correctamente"
+        response.render("Query/messageQuery", {
+          message: "Consulta eliminado correctamente"
         });
       });
     } catch (err) {
@@ -49,7 +49,7 @@ class QueryControllers{
     const getQueryDataService = new QueryService();            
     const query = await getQueryDataService.getData(idQuery);
 
-    return response.render("Empleados/edit", {
+    return response.render("Query/editQuery", {
       query: query
     }); 
   } 
@@ -57,7 +57,7 @@ class QueryControllers{
     const listQueryService = new QueryService();
     const query = await listQueryService.list();
 
-    return response.render("Empleados/Usuarios", {
+    return response.render("Query/query", {
       query: query
     });
   }
@@ -73,8 +73,8 @@ class QueryControllers{
         search: search
       });
     } catch (err) {
-      response.render("Empleados/message", {
-        message: `Error al buscar usuario: ${err.message}`
+      response.render("Query/messageQuery", {
+        message: `Error al buscar consulta: ${err.message}`
       });
     }
   }
@@ -84,13 +84,13 @@ class QueryControllers{
 
     try {
       await updateQueryService.update({ idQuery, queryname, patientId, datequery, reason, diagnosis }).then(() => {
-        response.render("Empleados/message", {
-          message: "Usuario actualizado correctamente"
+        response.render("Query/messageQuery", {
+          message: "Consulta actualizado correctamente"
         });
       });
     } catch (err) {
-      response.render("Empleados/message", {
-        message: `Error al actualizar usuario: ${err.message}`
+      response.render("Query/messageQuery", {
+        message: `Consulta al actualizar usuario: ${err.message}`
       });
     }
 

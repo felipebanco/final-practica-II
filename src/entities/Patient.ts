@@ -11,7 +11,7 @@ class Patient {
   patientname: string;
 
   @Column()
-  datebirth: string;
+  datebirth: Date;
 
   @Column()
   weigth: string;

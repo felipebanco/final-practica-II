@@ -68,7 +68,7 @@ class UserControllers{
 
     try {
       const users = await searchUserService.search(search);
-      response.render("search", {
+      response.render("Empleados/search", {
         users: users,
         search: search
       });

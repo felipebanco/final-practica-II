@@ -18,7 +18,7 @@ export class CreatePatients1624747881677 implements MigrationInterface {
                     },
                     {
                         name: "datebirth",
-                        type: "varchar"
+                        type: "date"
                     },
                     {
                         name: "weigth",

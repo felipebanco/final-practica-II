@@ -12,7 +12,7 @@ interface IMedical {
     datebirth: Date;
   }
 class MedicalService {
-      async create({ medicalname, email, phone, address, specialty,datebirth }: IMedical) {
+      async create({ medicalname, email, phone, address, specialty,datebirth }) {
         if (!medicalname || !email || !phone || !address || !specialty || !datebirth) {
           throw new Error("Por favor rellenar todos los campos");
         }
@@ -72,7 +72,7 @@ class MedicalService {
     
         const medical = await medicalRepository
           .createQueryBuilder()
-          .where("clientname like :search", { search: `%${search}%` })
+          .where("medicalname like :search", { search: `%${search}%` })
           .orWhere("email like :search", { search: `%${search}%` })
           .orWhere("phone like :search", { search: `%${search}%` })
           .orWhere("address like :search", { search: `%${search}%` })
@@ -90,7 +90,7 @@ class MedicalService {
           .createQueryBuilder()
           .update(Medical)
           .set({ idMedical,medicalname, email, phone, address, specialty,datebirth })
-          .where("id = :id", { idMedical })
+          .where("idMedical = :idMedical", { idMedical })
           .execute();
     
         return medical;

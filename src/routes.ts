@@ -4,6 +4,9 @@ import ProductControllers from "./controllers/ProductControllers";
 import CategoryControllers from "./controllers/CategoryControllers";
 import { LoginControllers } from "./controllers/LoginControllers";
 import { PatientControllers } from "./controllers/PatientControllers";
+import { ClientControllers } from "./controllers/ClientControllers";
+import { MedicalControllers} from "./controllers/MedicalControllers";
+import { QueryControllers } from "./controllers/QueryControllers";
 
 
 //----------------------------Empleados--------------------------------------------
@@ -55,6 +58,11 @@ router.get("/listPaciente",patient.handleListPatient);
 router.get("/addPaciente", (request, response) => {
   response.render("Paciente/addPaciente");});
 router.post("/addPaciente", patient.handleCreatePatient);
+router.post("/addPatient", patient.handleCreatePatient);
+router.get("/searchPaciente", patient.handleSearchPatient);
+router.get("/editPatient", patient.handleGetPatient);
+router.post("/edit-patient", patient.handleUpdatePatient);
+router.post("/delete-patient", patient.handleDeletePatient);
 //---------------------------------Sesion----------------------------------------
 
 const login = new LoginControllers();
@@ -72,6 +80,42 @@ router.get("/searchRegistro", login.handleSearchUser);
 router.get("/editLogin", login.handleGetUser);
 router.post("/edit-Login", login.handleUpdateUser);
 router.post("/deleteLogin", login.handleDeleteUser);
+//----------------------Cliente-------------------------
+const client = new ClientControllers();
+
+router.get("/Client", client.handleListClient);
+router.get("/addClient", (request, response) => {
+  response.render("Client/addClient");});
+router.post("/addClient", client.handleCreateClient);
+router.post("/addClient", client.handleCreateClient);
+router.get("/searchClient", client.handleSearchClient);
+router.get("/editClient", client.handleGetClient);
+router.post("/edit-client", client.handleUpdateClient);
+router.post("/delete-client", client.handleDeleteClient);
+//---------------------Medico---------------------------
+const medical = new MedicalControllers();
+
+router.get("/medical",medical.handleListMedical);
+router.get("/addMedical", (request, response) => {
+  response.render("Medical/addMedical");});
+router.post("/addMedical", medical.handleCreateMedical);
+router.post("/addMedical", medical.handleCreateMedical);
+router.get("/searchMedeical", medical.handleSearchMedical);
+router.get("/editMedical", medical.handleGetMedical);
+router.post("/edit-medical", medical.handleUpdateMedical);
+router.post("/delete-medical", medical.handleDeleteMedical);
+//----------------------Consultas-------------------------------
+const query = new QueryControllers();
+
+router.get("/Query",query.handleListQuery);
+router.get("/addQuery", (request, response) => {
+  response.render("Query/addQuery");});
+router.post("/addQuery", query.handleCreateQuery);
+router.post("/addQuery", query.handleCreateQuery);
+router.get("/searchQuery", query.handleSearchQuery);
+router.get("/editQuery", query.handleGetQuery);
+router.post("/edit-query", query.handleUpdateQuery);
+router.post("/delete-query", query.handleDeleteQuery);
 
 export { router };
 
