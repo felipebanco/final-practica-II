@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
-@Entity("login")
+@Entity("logins")
 class Login {
   @PrimaryGeneratedColumn()
   id: string;
