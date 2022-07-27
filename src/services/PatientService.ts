@@ -9,10 +9,11 @@ interface IPatient {
     weigth: string;
     heigth: string;
     specie: string;
+    client: string;
   }
 class PatientService {
-      async create({ patientname, datebirth,weigth, heigth, specie }: IPatient) {
-        if (!patientname || !datebirth || !weigth || !heigth || !specie) {
+      async create({ patientname, datebirth,weigth, heigth, specie, client }: IPatient) {
+        if (!patientname || !datebirth || !weigth || !heigth || !specie || !client) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -23,7 +24,7 @@ class PatientService {
         if (patientrnameAlreadyExists) {
           throw new Error("El nombre de usuario ya esta registrado");
         }
-        const patient = patientRepository.create({ patientname, datebirth, weigth, heigth, specie });
+        const patient = patientRepository.create({ patientname, datebirth, weigth, heigth, specie, client });
         const nuevopaciente = await patientRepository.save(patient);
         console.log(nuevopaciente);
         return patient;
@@ -71,18 +72,19 @@ class PatientService {
           .orWhere("weigth like :search", { search: `%${search}%` })
           .orWhere("heigth like :search", { search: `%${search}%` })
           .orWhere("specie like :search", { search: `%${search}%` })
+          .orWhere("client like :search", { search: `%${search}%` })
           .getMany();
     
         return patient;
     
       }
-      async update({ idPatient, patientname, datebirth ,weigth, heigth, specie }: IPatient) {
+      async update({ idPatient, patientname, datebirth ,weigth, heigth, specie, client }: IPatient) {
         const patientRepository = getCustomRepository(PatientsRepository);
     
         const patient = await patientRepository
           .createQueryBuilder()
           .update(Patient)
-          .set({ patientname, datebirth ,weigth, heigth, specie })
+          .set({ patientname, datebirth ,weigth, heigth, specie, client })
           .where("idPatient = :idPatient", { idPatient })
           .execute();
     

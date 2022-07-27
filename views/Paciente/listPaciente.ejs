@@ -79,6 +79,7 @@
           <th scope="col">Peso</th>
           <th scope="col">Altura</th>
           <th scope="col">Especie</th>
+          <th scope="col">Cliente</th>
           <th scope="col">Creado</th>
           <th scope="col">Actualizado</th>
           <th scope="col">Opciones</th>
@@ -101,6 +102,9 @@
               <td>
                 <%= patient.specie%>
               </td>
+               <td>
+                <%= patient.client%>
+              </td>
               <td>
                 <div class="date">
                   <div>
@@ -111,16 +115,7 @@
                   </div>
                 </div>
               </td>
-              <td>
-                <div class="date">
-                  <div>
-                    <%= patient.updated_at.toLocaleDateString() %>
-                  </div>
-                  <div>
-                    <%= patient.updated_at.toLocaleTimeString() %>
-                  </div>
-                </div>
-              </td>           
+             
               <td>
                 <div class="btn-actions">
                   <div>

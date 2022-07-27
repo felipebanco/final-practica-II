@@ -34,7 +34,11 @@ export class CreatePatients1624747881677 implements MigrationInterface {
                        
                     },
                     
-
+                    {
+                        name: "client",
+                        type: "varchar",
+                       
+                    },
                     {
                         name: "created_at",
                         type: "timestamp",

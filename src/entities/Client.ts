@@ -1,7 +1,8 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn,OneToMany, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Patient } from "./Patient";
 
-@Entity("clients")
+@Entity("client")
 class Client {
 
   @PrimaryColumn()
@@ -24,6 +25,9 @@ class Client {
 
   @Column()
   state: string;
+
+  @OneToMany(() => Patient, patients => patients.cliente)
+  cliente: Patient[]; 
 
   @CreateDateColumn()
   created_at: Date;

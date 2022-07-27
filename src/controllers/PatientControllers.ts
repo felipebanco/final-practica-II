@@ -4,7 +4,7 @@ import {PatientService} from "../services/PatientService";
 class PatientControllers{
 
   async handleCreatePatient(request: Request, response: Response) {
-      const { patientname, datebirth,weigth, heigth, specie } = request.body;
+      const { patientname, datebirth,weigth, heigth, specie, client } = request.body;
       const createPatientService = new PatientService();
   
       try {
@@ -14,6 +14,7 @@ class PatientControllers{
             weigth,
             heigth,
             specie,
+            client
         }).then(() => {
           response.render("Paciente/messagePaciente", {
             message: "El paciente fue registrado exitosamente"
@@ -81,11 +82,11 @@ class PatientControllers{
     }
   }
   async handleUpdatePatient(request: Request, response: Response) {
-    const { idPatient, patientname, datebirth ,weigth, heigth, specie } = request.body;
+    const { idPatient, patientname, datebirth ,weigth, heigth, specie, client} = request.body;
     const updatePatientService = new PatientService();
 
     try {
-      await updatePatientService.update({ idPatient, patientname, datebirth ,weigth, heigth, specie }).then(() => {
+      await updatePatientService.update({ idPatient, patientname, datebirth ,weigth, heigth, specie, client}).then(() => {
         response.render("Paciente/messagePaciente", {
           message: "Paciente actualizado correctamente"
         });

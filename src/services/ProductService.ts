@@ -13,10 +13,10 @@ interface IProduct {
   }
   class ProductService {
     async create({ productname, price,name }) {
-        /* if (!productname || !price || !categoriaId) {
+        if (!productname || !price || !name) {
           throw new Error("Por favor rellenar todos los campos");
         }
-     */
+     
         const productsRepository = getCustomRepository(ProductsRepository);
     
         const productnameAlreadyExists = await productsRepository.findOne({ productname });
