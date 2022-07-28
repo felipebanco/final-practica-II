@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn,OneToMany, UpdateDateCo
 import { v4 as uuid } from "uuid";
 import { Patient } from "./Patient";
 
-@Entity("client")
+@Entity("clients")
 class Client {
 
   @PrimaryColumn()

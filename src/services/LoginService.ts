@@ -2,6 +2,7 @@ import { getCustomRepository } from "typeorm";
 import { LoginRepository } from "../repositories/LoginRepository";
 import { Login } from "../entities/Login";
 import bcrypt from 'bcrypt'
+import config from "../config";
 
 interface ILogin {
     id?: string;
@@ -26,6 +27,10 @@ class LoginService {
         const login = loginRepository.create({ username, password, rol });
     
         await loginRepository.save(login);
+        
+       
+    
+       
     
         return login;
       }

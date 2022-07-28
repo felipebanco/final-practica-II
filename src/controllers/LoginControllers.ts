@@ -1,15 +1,22 @@
 import { Request, Response } from "express";
 import {LoginService} from "../services/LoginService";
 import bcrypt from 'bcrypt';
+import  { LocalStorage } from 'node-localstorage';
+const localStorage = new LocalStorage('./scratch');
+import {LoginRepository} from "../repositories/LoginRepository"
+
+
+
 class LoginControllers{
 
   async handleCreateSingUp(request: Request, response: Response) {
+      
       
       const { username,rol } = request.body;
       let password = request.body;
       let pass = await bcrypt.hash(request.body.password, 2);
       const createUserService = new LoginService();
-  
+      
       try {
         await createUserService.create({
           username,
@@ -99,20 +106,21 @@ class LoginControllers{
     var loggedin = false;
 
     const singInAutenticationService = new LoginService();
-
+    
     try {
       await singInAutenticationService.autentication({ username, password,rol}).then(() => {
         response.render("index", {
           message: "Sesion iniciada exitosamente",
         });
-        loggedin = true;      
+        loggedin = true; 
+        // const token:any = generarJWT( usuario.id );
       });
       ;
     } catch (err) {
       response.render("Inicio/messageSignIn", {
         message: `Error al iniciar usuario: ${err.message}`
       });
-      console.log(password)
+      
     }
   }
 
