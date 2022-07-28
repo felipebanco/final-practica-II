@@ -11,7 +11,7 @@
   <script src="https://kit.fontawesome.com/20f8330ac2.js" crossorigin="anonymous"></script>
 
 </head>
-<body id="body" onload="open_close_menu()">
+<body id="body" onload="counterClient()">
   <header>
       <div class="icon__menu">
           <i class="fas fa-bars" id="btn_open"></i>
@@ -62,8 +62,8 @@
                 </a>
       </div>
   </div>
-  <div class="container">
-    <div class="centered text-center" id="message-div">
+  <div id="modal_container" class="modal-container show">
+    <div class="modal">
       <h4>
         <%= message %>
       </h4>

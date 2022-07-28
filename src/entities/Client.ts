@@ -26,7 +26,7 @@ class Client {
   @Column()
   state: string;
 
-  @OneToMany(() => Patient, patients => patients.cliente)
+  @OneToMany(() => Patient, patient => patient.cliente)
   cliente: Patient[]; 
 
   @CreateDateColumn()

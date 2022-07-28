@@ -17,7 +17,7 @@ class PatientControllers{
             client
         }).then(() => {
           response.render("Paciente/messagePaciente", {
-            message: "El paciente fue registrado exitosamente"
+            message: "El paciente fue registrado exitosamente",
           });
         });
       } catch (err) {

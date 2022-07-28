@@ -37,7 +37,7 @@ function counterSignUp() {
     }
   }, 1000);
 }
-function counterProduct() {
+function counterQuery() {
   let countdown = 5;
 
   let timerDiv = document.getElementById("timer");
@@ -51,7 +51,7 @@ function counterProduct() {
     }
   }, 1000);
 }
-function counterCategory() {
+function counterClient() {
   let countdown = 5;
 
   let timerDiv = document.getElementById("timer");
@@ -61,7 +61,21 @@ function counterCategory() {
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./Category"
+      window.location.href = "./Client"
+    }
+  }, 1000);
+}
+function counterPaciente() {
+  let countdown = 5;
+
+  let timerDiv = document.getElementById("timer");
+
+  let timer = setInterval(function () {
+    
+    countdown--;
+    if (countdown === 0) {
+      clearInterval(timer);
+      window.location.href = "./listPaciente"
     }
   }, 1000);
 }
