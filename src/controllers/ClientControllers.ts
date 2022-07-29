@@ -21,7 +21,7 @@ class ClientControllers{
           });
         });
       } catch (err) {
-        response.render("Client/message", {
+        response.render("Client/messageClient", {
           message: `Error al registrar cliente: ${err.message}`
         });
       }

@@ -62,57 +62,52 @@
                 </a>
       </div>
   </div>
-  <br>
-  <div class="container">
-    <div class="text-center">
-      <h2>Editar datos de Consulta</h2>
-    </div>
-    <br>
+    <div class="container">
+      <div class="text-center">
+        <h2>Editar datos de Paciente</h2>
+      </div>
     <form action="./edit-client" method="POST">
       <input type="hidden" name="idClient" value="<%= client.idClient%>">
-      <div class="row">
-        <div class="col-12">
+      <div class="container-input">
+        <div class="input">
           <label for="clientname" class="form-label">Nombre de Cliente</label>
-          <input type="text" name="clientname" id="clientname" class="form-control" value="<%= client.clientname%>">
+          <input class="controls" type="text" name="clientname" id="clientname" class="form-control" value="<%= client.clientname%>">
         </div>
       </div>
-      <br>
-      <div class="row">
-        <div class="col-6">
+        <div class="input">
           <label for="dni" class="form-label">DNI </label>
-          <input type="text" name="dni" id="dni" class="form-control" value="<%= client.dni%>">
+          <input class="controls" type="text" name="dni" id="dni" class="form-control" value="<%= client.dni%>">
         </div>
-        <div class="col-6">
+        <div class="input">
           <label for="email" class="form-label">email</label>
-          <input type="email" name="email" id="email" class="form-control" value="<%= client.email%>">
+          <input class="controls" type="email" name="email" id="email" class="form-control" value="<%= client.email%>">
         </div>
       </div>
       <br>
-      <div class="col-6">
+      <div class="input">
         <label for="phone" class="form-label">Teléfono</label>
-        <input type="text" name="phone" id="phone" class="form-control" value="<%= client.phone %>">
+        <input class="controls" type="text" name="phone" id="phone" class="form-control" value="<%= client.phone %>">
       </div>
     </div>
     <br>
     <div class="row">
-      <div class="col-6">
+      <div class="input">
         <label for="city" class="form-label">Ciudad</label>
-        <input type="text" name="city" id="city" class="form-control" value="<%= client.city %>">
+        <input class="controls" type="text" name="city" id="city" class="form-control" value="<%= client.city %>">
       </div>
-      <div class="col-6">
+      <div class="input">
         <label for="state" class="form-label">Estado</label>
-        <input type="text" name="state" id="state" class="form-control" value="<%= client.state%>">
+        <input class="controls" type="text" name="state" id="state" class="form-control" value="<%= client.state%>">
       </div>
     </div>
       
-        <div class="col-6">
-          <div class="float-start">
-            <button type="submit" class="btn btn-success">Actualizar Cliente</button>
+        <div class="container-btn">
+          <div class="">
+            <button type="submit" class="boton">Actualizar Cliente</button>
           </div>
-        </div>
-        <div class="col-6">
+        <div class="">
           <div class="float-end">
-            <a href="./index" class="btn btn-success" >Volver al inicio</a>
+            <a href="./index" class="boton" >Volver al inicio</a>
           </div>
         </div>
       </div>

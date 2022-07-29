@@ -54,6 +54,12 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+              </a>
                 <a href="./" class="logout">
                     <div class="option">
                         <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
@@ -98,6 +104,17 @@
               <option value="pez">Pez</option>
           </select>
         </div>         
+        <div class="input">
+          <label for="clientname" class="form-label">Cliente</label>
+          <select class="controls" name="clientname" id="clientname" class="form-select">
+              <option value="" selected disabled>Seleccione cliente</option>
+              <% clients.forEach(function(client) { %>
+                  <option value="<%= client.clientname %>">
+                      <%= client.clientname %>
+                  </option>
+              <% }) %>
+          </select>
+        </div>  
       </div>
 
       <div class="container-btn">

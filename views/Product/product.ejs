@@ -1,15 +1,88 @@
-<%- include("../template/navBar") %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Node.js</title>
+  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <script src="https://kit.fontawesome.com/20f8330ac2.js" crossorigin="anonymous"></script>
+
+</head>
+<body id="body" onload="open_close_menu()">
+  <header>
+      <div class="icon__menu">
+          <i class="fas fa-bars" id="btn_open"></i>
+      </div>
+  </header>
+  <div class="menu__side" id="menu_side"> 
+      
+      <div class="name__page"> 
+          <i class="fa-solid fa-shield-dog"></i>
+          <h4>MyVet</h4>
+      </div>
+      <div class="options__menu">
+              <a href="/index" >
+                  <div class="option">
+                      <i class="fas fa-home" title="Inicio"></i>
+                      <h4>Inicio</h4> 
+                  </div>
+              </a>
+              <a href="./addPaciente" >
+                  <div class="option">
+                      <i class="fa-solid fa-paw" title="Paciente"></i>
+                      <h4>Pacientes</h4>
+                  </div>
+              </a>
+              <a href="./Client" class="selected">
+                  <div class="option">
+                      <i class="far fa-id-badge" title="Cliente"></i>
+                      <h4>Cliente</h4>
+                  </div>
+              </a>
+              <a href="./query" >
+                  <div class="option">
+                      <i class="fa-solid fa-file-lines" title="Consulta"></i>
+                      <h4>Consulta</h4>
+                  </div>
+              </a>
+              <a href="./ListLogin">
+                  <div class="option">
+                      <i class="fa-solid fa-stethoscope" title="Usuarios"></i>
+                      <h4>Usuarios</h4> 
+                  </div>
+              </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
+                <a href="./" class="logout">
+                    <div class="option">
+                        <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
+                        <h4>Cerrar Sesión</h4> 
+                    </div>
+                </a>
+      </div>
 
 <body>
-  <br>
-  <div class="row container " width="100vw">
-    <div class="text-center">
-      <h2>Lista de productos</h2>
-    </div>
+</div>
+<div class="center">
+  <h4>Productos</h4>
+</div>
     <br>
     <br>
-    <br>
-    <table class="table table-light table-bordered table-hover"  >
+    <div class="container-table" >
+    <table>
       <thead>
         <th scope="col">Nombre</th>
         <th scope="col">Precio</th>
@@ -41,18 +114,16 @@
                 <%= product.updated_at.toLocaleTimeString() %>
             </td>            
             <td>
-              <div class="row">
-                <div class="row">
+              <div class="btn-actions">
+              <div>
                   <form action="./editProduct" method="GET">
                     <input type="hidden" name="id" value="<%= product.id %>">
-                    <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
+                    <button type="submit" class="btn edit-btn"><i class="fa-solid fa-pencil"></i></button>
                   </form>
                 </div>
-                <div class="row"></div>
-                <div class="row">
                   <form action="./delete-product" method="POST">
                     <input type="hidden" name="id" value="<%= product.id %>">
-                    <button type="submit" class="btn delete-btn"><i class="bi bi-trash"></i></button>
+                    <button type="submit" class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
                   </form>
                 </div>
               </div>
@@ -63,15 +134,15 @@
     </table>
     <br>
     <br>
-    <div class="float-start">
-      <a href="./addProduct" class="btn btn-success">Agregar Producto</a>
+    <div class="btn">
+      <a href="./addProduct" class="boton">Agregar Producto</a>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-    crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
-  <script src="js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+       crossorigin="anonymous"></script>
+      <script src="js/script.js"></script>
+      <script src="js/menu.js"></script>
 </body>
 
 </html>

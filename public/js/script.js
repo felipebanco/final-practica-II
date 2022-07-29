@@ -47,7 +47,7 @@ function counterQuery() {
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./product"
+      window.location.href = "./query"
     }
   }, 1000);
 }
@@ -79,3 +79,18 @@ function counterPaciente() {
     }
   }, 1000);
 }
+function counterProducto() {
+  let countdown = 5;
+
+  let timerDiv = document.getElementById("timer");
+
+  let timer = setInterval(function () {
+    
+    countdown--;
+    if (countdown === 0) {
+      clearInterval(timer);
+      window.location.href = "./product"
+    }
+  }, 1000);
+}
+

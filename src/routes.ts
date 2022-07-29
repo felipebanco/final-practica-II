@@ -7,7 +7,6 @@ import { PatientControllers } from "./controllers/PatientControllers";
 import { ClientControllers } from "./controllers/ClientControllers";
 import { MedicalControllers} from "./controllers/MedicalControllers";
 import { QueryControllers } from "./controllers/QueryControllers";
-import { esAdminRole } from './middlewares/validar-roles';
 
 
 //----------------------------Empleados--------------------------------------------
@@ -18,7 +17,7 @@ router.get("/profile", (request, response) => {
 });
 
 
-router.get("/Usuarios",esAdminRole,controllers.handleListUser);
+router.get("/Usuarios",controllers.handleListUser);
 router.get("/add", (request, response) => {
   response.render("Empleados/add");
 });
@@ -108,7 +107,7 @@ router.post("/delete-medical", medical.handleDeleteMedical);
 //----------------------Consultas-------------------------------
 const query = new QueryControllers();
 
-router.get("/Query",query.handleListQuery);
+router.get("/query",query.handleListQuery);
 router.get("/addQuery", (request, response) => {
   response.render("Query/addQuery");});
 router.post("/addQuery", query.handleCreateQuery);

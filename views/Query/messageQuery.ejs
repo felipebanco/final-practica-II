@@ -1,8 +1,72 @@
-<%- include("../template/navBar") %>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<body onload="counter()">
-  <div class="container">
-    <div class="centered text-center" id="message-div">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Node.js</title>
+  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/popup.css">
+
+  <script src="https://kit.fontawesome.com/20f8330ac2.js" crossorigin="anonymous"></script>
+
+</head>
+<body id="body">
+  <header>
+      <div class="icon__menu">
+          <i class="fas fa-bars" id="btn_open"></i>
+      </div>
+  </header>
+  <div class="menu__side" id="menu_side"> 
+      
+      <div class="name__page"> 
+          <i class="fa-solid fa-shield-dog"></i>
+          <h4>MyVet</h4>
+      </div>
+      <div class="options__menu">
+              <a href="/index" >
+                  <div class="option">
+                      <i class="fas fa-home" title="Inicio"></i>
+                      <h4>Inicio</h4> 
+                  </div>
+              </a>
+              <a href="./addPaciente" >
+                  <div class="option">
+                      <i class="fa-solid fa-paw" title="Paciente"></i>
+                      <h4>Pacientes</h4>
+                  </div>
+              </a>
+              <a href="./Client">
+                  <div class="option">
+                      <i class="far fa-id-badge" title="Cliente"></i>
+                      <h4>Cliente</h4>
+                  </div>
+              </a>
+              <a href="./query">
+                  <div class="option" class="selected">
+                      <i class="fa-solid fa-file-lines" title="Consulta"></i>
+                      <h4>Consulta</h4>
+                  </div>
+              </a>
+              <a href="./ListLogin">
+                  <div class="option">
+                      <i class="fa-solid fa-stethoscope" title="Usuarios"></i>
+                      <h4>Usuarios</h4> 
+                  </div>
+              </a>
+                <a href="./" class="logout">
+                    <div class="option">
+                        <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
+                        <h4>Cerrar Sesión</h4> 
+                    </div>
+                </a>
+      </div>
+  </div>
+<body onload="counterQuery()">
+  <div id="modal_container" class="modal-container show">
+    <div class="modal">
       <h4>
         <%= message %>
       </h4>
