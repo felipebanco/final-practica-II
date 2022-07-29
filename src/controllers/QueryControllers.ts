@@ -4,14 +4,13 @@ import {QueryService} from "../services/QueryService";
 class QueryControllers{
 
   async handleCreateQuery(request: Request, response: Response) {
-      const {  queryname, patientId, datequery, reason, diagnosis  } = request.body;
+      const {  queryname, patientId, reason, diagnosis  } = request.body;
       const createQueryService = new QueryService();
   
       try {
         await createQueryService.create({
             queryname,
             patientId,
-            datequery,
             reason,
             diagnosis,
         }).then(() => {
@@ -83,7 +82,7 @@ class QueryControllers{
     const updateQueryService = new QueryService();
 
     try {
-      await updateQueryService.update({ idQuery, queryname, patientId, datequery, reason, diagnosis }).then(() => {
+      await updateQueryService.update({ idQuery, queryname, patientId, reason, diagnosis }).then(() => {
         response.render("Query/messageQuery", {
           message: "Consulta actualizado correctamente"
         });

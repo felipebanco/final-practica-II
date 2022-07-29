@@ -48,6 +48,18 @@
                       <h4>Consulta</h4>
                   </div>
               </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
               <a href="./ListLogin">
                   <div class="option">
                       <i class="fa-solid fa-stethoscope" title="Usuarios"></i>
@@ -73,8 +85,7 @@
           <th scope="col">dni</th>
           <th scope="col">email</th>
           <th scope="col">telefono</th>
-          <th scope="col">Ciudad</th>
-          <th scope="col">estado</th>
+          <th scope="col">Departamento</th>
           <th scope="col">Creado</th>
           <th scope="col">Actualizado</th>
           <th scope="col">Opciones</th>
@@ -96,9 +107,6 @@
               </td>
               <td>
                 <%= client.city%>
-              </td>
-              <td>
-                <%= client.state%>
               </td>
               <td>
                 <%= client.created_at.toLocaleDateString() %>

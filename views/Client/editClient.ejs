@@ -48,6 +48,18 @@
                       <h4>Consulta</h4>
                   </div>
               </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
               <a href="./ListLogin">
                   <div class="option">
                       <i class="fa-solid fa-stethoscope" title="Usuarios"></i>
@@ -62,10 +74,10 @@
                 </a>
       </div>
   </div>
-    <div class="container">
-      <div class="text-center">
-        <h2>Editar datos de Paciente</h2>
-      </div>
+  <div class="form-register">
+    <h2>Editar Producto</h2>
+    <hr>
+    <br>
     <form action="./edit-client" method="POST">
       <input type="hidden" name="idClient" value="<%= client.idClient%>">
       <div class="container-input">
@@ -73,34 +85,45 @@
           <label for="clientname" class="form-label">Nombre de Cliente</label>
           <input class="controls" type="text" name="clientname" id="clientname" class="form-control" value="<%= client.clientname%>">
         </div>
-      </div>
         <div class="input">
           <label for="dni" class="form-label">DNI </label>
           <input class="controls" type="text" name="dni" id="dni" class="form-control" value="<%= client.dni%>">
         </div>
+      </div>
+      <div class="container-input">
         <div class="input">
           <label for="email" class="form-label">email</label>
           <input class="controls" type="email" name="email" id="email" class="form-control" value="<%= client.email%>">
         </div>
+        <div class="input">
+          <label for="phone" class="form-label">Teléfono</label>
+          <input class="controls" type="text" name="phone" id="phone" class="form-control" value="<%= client.phone %>">
+        </div>
       </div>
-      <br>
-      <div class="input">
-        <label for="phone" class="form-label">Teléfono</label>
-        <input class="controls" type="text" name="phone" id="phone" class="form-control" value="<%= client.phone %>">
+      <div class="container-input">
+        <div class="input">
+          <label for="city" class="form-label">Departamento</label>
+          <select class="controls" name="city" id="city" class="form-select" value="<%= client.city %>">
+            <option value="<%= client.city %>" selected>Seleccione su departamento</option>
+            <option value="Capital">Capital</option>
+            <option value="Gral Alvear">General Alvear</option>
+            <option value="Godoy Cruz">Godoy Cruz</option>
+            <option value="Guaymallén">Guaymallén</option>
+            <option value="Junín">Junín</option>
+            <option value="Lavalle">Lavalle</option>
+            <option value="Las Heras">Las Heras</option>
+            <option value="La Paz">La Paz</option>
+            <option value="Luján de cuyo">Luján de cuyo</option>
+            <option value="Maipú">Maipú</option>
+            <option value="Malargüe">Malargüe</option>
+            <option value="Rivadavia">Rivadavia</option>
+            <option value="San Carlos">San Carlos</option>
+            <option value="Santa Rosa">Santa Rosa</option>
+            <option value="Tunuyán">Tunuyán</option>
+            <option value="Tupungato">Tupungato</option>
+          </select>
+        </div> 
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="input">
-        <label for="city" class="form-label">Ciudad</label>
-        <input class="controls" type="text" name="city" id="city" class="form-control" value="<%= client.city %>">
-      </div>
-      <div class="input">
-        <label for="state" class="form-label">Estado</label>
-        <input class="controls" type="text" name="state" id="state" class="form-control" value="<%= client.state%>">
-      </div>
-    </div>
-      
         <div class="container-btn">
           <div class="">
             <button type="submit" class="boton">Actualizar Cliente</button>

@@ -42,7 +42,7 @@
                       <h4>Cliente</h4>
                   </div>
               </a>
-              <a href="./query" class="selected">
+              <a href="./query" >
                   <div class="option">
                       <i class="fa-solid fa-file-lines" title="Consulta"></i>
                       <h4>Consulta</h4>
@@ -54,6 +54,18 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
+              <a href="./product" class="selected">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
                 <a href="./" class="logout">
                     <div class="option">
                         <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
@@ -83,7 +95,7 @@
         <div class="input">
         <label for="name" class="form-label">Categoria</label>
         <select class="controls" name="name" id="name" class="form-select">
-            <option value="categoryId" selected disabled>Seleccione categoria</option>
+            <option value="<%= product.categoriaId %>" selected >Seleccione categoria</option>
             <% categories.forEach(function(category) { %>
                 <option value="<%= category.name %>">
                     <%= category.name %>
@@ -107,6 +119,8 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
+
 </body>
 
 </html>

@@ -6,13 +6,12 @@ interface IQuery {
     idQuery?: string;
     queryname: string;
     patientId: string;
-    datequery: Date;
     reason: string;
     diagnosis: string;
   }
 class QueryService {
-      async create({ queryname, patientId, datequery, reason, diagnosis }: IQuery) {
-        if (!queryname || !patientId || !datequery || !reason || !diagnosis) {
+      async create({ queryname, patientId, reason, diagnosis }: IQuery) {
+        if (!queryname || !patientId || !reason || !diagnosis) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -26,7 +25,7 @@ class QueryService {
     
 
     
-        const query = queryRepository.create({ queryname,patientId, datequery, reason, diagnosis});
+        const query = queryRepository.create({ queryname,patientId, reason, diagnosis});
     
         await queryRepository.save (query);
     
@@ -69,7 +68,6 @@ class QueryService {
           .createQueryBuilder()
           .where("queryname like :search", { search: `%${search}%` })
           .orWhere("patientId like :search", { search: `%${search}%` })
-          .orWhere("datequery like :search", { search: `%${search}%` })
           .orWhere("reason like :search", { search: `%${search}%` })
           .orWhere("diagnosis like :search", { search: `%${search}%` })
           .getMany();
@@ -77,13 +75,13 @@ class QueryService {
         return query;
     
       }
-      async update({ idQuery, queryname, patientId, datequery, reason, diagnosis }: IQuery) {
+      async update({ idQuery, queryname, patientId, reason, diagnosis }: IQuery) {
         const queryRepository = getCustomRepository(QuerysRepository);
     
         const query = await queryRepository
           .createQueryBuilder()
           .update(Query)
-          .set({ queryname, datequery, reason, diagnosis })
+          .set({ queryname, reason, diagnosis })
           .where("idQuery = :idQuery", { idQuery })
           .execute();
     

@@ -23,9 +23,6 @@ class Client {
   @Column()
   city: string;
 
-  @Column()
-  state: string;
-
   @OneToMany(() => Patient, patient => patient.cliente)
   cliente: Patient[]; 
 

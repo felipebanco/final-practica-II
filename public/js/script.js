@@ -9,7 +9,7 @@ function counter() {
       clearInterval(timer);
       window.location.href = "./index"
     }
-  }, 1000);
+  }, 200);
 }
 function counterSignIn() {
   let countdown = 5;
@@ -22,7 +22,7 @@ function counterSignIn() {
       clearInterval(timer);
       window.location.href = "./signIn"
     }
-  }, 1000);
+  }, 200);
 }
 function counterSignUp() {
   let countdown = 5;
@@ -35,7 +35,7 @@ function counterSignUp() {
       clearInterval(timer);
       window.location.href = "./signUp"
     }
-  }, 1000);
+  }, 200);
 }
 function counterQuery() {
   let countdown = 5;
@@ -49,7 +49,7 @@ function counterQuery() {
       clearInterval(timer);
       window.location.href = "./query"
     }
-  }, 1000);
+  }, 200);
 }
 function counterClient() {
   let countdown = 5;
@@ -63,7 +63,7 @@ function counterClient() {
       clearInterval(timer);
       window.location.href = "./Client"
     }
-  }, 1000);
+  }, 200);
 }
 function counterPaciente() {
   let countdown = 5;
@@ -77,7 +77,7 @@ function counterPaciente() {
       clearInterval(timer);
       window.location.href = "./listPaciente"
     }
-  }, 1000);
+  }, 200);
 }
 function counterProducto() {
   let countdown = 5;
@@ -91,6 +91,19 @@ function counterProducto() {
       clearInterval(timer);
       window.location.href = "./product"
     }
-  }, 1000);
+  }, 200);
 }
+function counterCategory() {
+  let countdown = 5;
 
+  let timerDiv = document.getElementById("timer");
+
+  let timer = setInterval(function () {
+    
+    countdown--;
+    if (countdown === 0) {
+      clearInterval(timer);
+      window.location.href = "./Category"
+    }
+  }, 200);
+}

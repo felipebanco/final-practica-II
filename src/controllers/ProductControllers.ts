@@ -98,12 +98,12 @@ class ProductControllers{
   }
   async handleUpdateProduct(request: Request, response: Response) {
     
-    const {  id,productname, price, categoriaId} = request.body;
+    const { productname, price, categoriaId} = request.body;
 
     const updateProductService = new ProductService();
 
     try {
-      await updateProductService.update({ id, productname, price,categoriaId}).then(() => {
+      await updateProductService.update({  productname, price,categoriaId}).then(() => {
         response.render("Product/messageProduct", {
           message: "Producto actualizado correctamente"
         });

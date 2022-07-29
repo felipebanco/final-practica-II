@@ -33,12 +33,6 @@ export class CreateClient1624747881677 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "state",
-                        type: "varchar",
-                        length: "2"
-                    },
-
-                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"

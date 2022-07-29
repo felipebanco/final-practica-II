@@ -12,10 +12,7 @@ class Query {
 
   @Column()
   patientId: string;
-
-  @Column()
-  datequery: Date;
-
+  
   @Column()
   reason: string;
 

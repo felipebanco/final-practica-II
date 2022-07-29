@@ -4,7 +4,7 @@ import {ClientService} from "../services/ClientService";
 class ClientControllers{
 
   async handleCreateClient(request: Request, response: Response) {
-      const { clientname,dni, email, phone, city, state } = request.body;
+      const { clientname,dni, email, phone, city } = request.body;
       const createClientService = new ClientService();
   
       try {
@@ -13,8 +13,7 @@ class ClientControllers{
           dni,
           email,
           phone,
-          city,
-          state
+          city
         }).then(() => {
           response.render("Client/messageClient", {
             message: "Cliente registrado exitosamente"
@@ -84,7 +83,7 @@ class ClientControllers{
     const updateClientService = new ClientService();
 
     try {
-      await updateClientService.update({ idClient, clientname, dni,  email, phone, city, state}).then(() => {
+      await updateClientService.update({ idClient, clientname, dni,  email, phone, city}).then(() => {
         response.render("Client/messageClient", {
           message: "Cliente actualizado correctamente"
         });

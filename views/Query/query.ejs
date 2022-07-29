@@ -54,6 +54,18 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
                 <a href="./" class="logout">
                     <div class="option">
                         <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
@@ -69,9 +81,8 @@
   <div class="container-table" >
       <table>
         <thead>
-          <th scope="col">Nombre</th>
+          <th scope="col">Medico</th>
           <th scope="col">paciente</th>
-          <th scope="col">Fecha</th>
           <th scope="col">Motivo de Consulta</th>
           <th scope="col">Diagnostico</th>
           <th scope="col">Creado</th>
@@ -87,9 +98,6 @@
               <td>
                 <%= query.patientId%>
               </td>   
-              <td>
-                <%= query.datequery.toLocaleDateString() %>
-              </td>
               <td>
                 <%= query.reason%>
               </td>

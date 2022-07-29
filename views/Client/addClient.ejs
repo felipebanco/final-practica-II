@@ -54,6 +54,18 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
                 <a href="./" class="logout">
                     <div class="option">
                         <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
@@ -90,13 +102,27 @@
       </div>
       <div class="container-input">
         <div class="input">
-          <label for="city" class="form-label">Ciudad</label>
-          <input class="controls" type="text" name="city" id="city" class="form-control">
+          <label for="city" class="form-label">Departamento</label>
+          <select class="controls" name="city" id="city" class="form-select">
+            <option value="" selected disabled>Seleccione su departamento</option>
+            <option value="Capital">Capital</option>
+            <option value="Gral Alvear">General Alvear</option>
+            <option value="Godoy Cruz">Godoy Cruz</option>
+            <option value="Guaymallén">Guaymallén</option>
+            <option value="Junín">Junín</option>
+            <option value="Lavalle">Lavalle</option>
+            <option value="Las Heras">Las Heras</option>
+            <option value="La Paz">La Paz</option>
+            <option value="Luján de cuyo">Luján de cuyo</option>
+            <option value="Maipú">Maipú</option>
+            <option value="Malargüe">Malargüe</option>
+            <option value="Rivadavia">Rivadavia</option>
+            <option value="San Carlos">San Carlos</option>
+            <option value="Santa Rosa">Santa Rosa</option>
+            <option value="Tunuyán">Tunuyán</option>
+            <option value="Tupungato">Tupungato</option>
+          </select>
         </div> 
-        <div class="input">
-          <label for="state" class="form-label">Estado</label>
-          <input class="controls" type="text" name="state" id="state" class="form-control">
-        </div>
       </div>
       <div class="container-btn">
           <div>

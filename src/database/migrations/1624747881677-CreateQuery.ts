@@ -21,10 +21,6 @@ export class CreateQuery1624747881677 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "datequery",
-                        type: "varchar"
-                    },
-                    {
                         name: "reason",
                         type: "varchar"
                     },

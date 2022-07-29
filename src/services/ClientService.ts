@@ -9,11 +9,10 @@ interface IClient {
     email: string;
     phone: string;
     city: string;
-    state: string;
   }
 class ClientService {
-      async create({ clientname, dni, email, phone, city, state }: IClient) {
-        if (!clientname || !dni || !email || !phone || !city || !state) {
+      async create({ clientname, dni, email, phone, city,  }: IClient) {
+        if (!clientname || !dni || !email || !phone || !city) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -31,7 +30,7 @@ class ClientService {
           throw new Error("El correo electrónico ya esta registrado");
         }
     
-        const client = clientsRepository.create({ clientname, dni, email, phone, city, state });
+        const client = clientsRepository.create({ clientname, dni, email, phone, city });
     
         await clientsRepository.save (client);
     
@@ -77,19 +76,18 @@ class ClientService {
           .orWhere("email like :search", { search: `%${search}%` })
           .orWhere("phone like :search", { search: `%${search}%` })
           .orWhere("city like :search", { search: `%${search}%` })
-          .orWhere("state like :search", { search: `%${search}%` })
           .getMany();
     
         return client;
     
       }
-      async update({ idClient, clientname, dni,  email, phone, city, state }: IClient) {
+      async update({ idClient, clientname, dni,  email, phone, city }: IClient) {
         const clientsRepository = getCustomRepository(ClientsRepository);
     
         const client = await clientsRepository
           .createQueryBuilder()
           .update(Client)
-          .set({ idClient, clientname, dni, email, phone, city, state })
+          .set({ idClient, clientname, dni, email, phone, city })
           .where("idClient = :idClient", { idClient })
           .execute();
     
