@@ -1,7 +1,6 @@
 import { getCustomRepository } from "typeorm";
 import { PatientsRepository } from "../repositories/PatientRepository";
 import { Patient } from "../entities/Patient";
-import { ClientsRepository } from "../repositories/ClientRepository";
 
 interface IPatient {
     idPatient?: string;
@@ -13,8 +12,8 @@ interface IPatient {
     client: string;
   }
 class PatientService {
-      async create({ patientname, datebirth,weigth, heigth, specie, clientname }) {
-        if (!patientname || !datebirth || !weigth || !heigth || !specie || !clientname ) {
+      async create({ patientname, datebirth,weigth, heigth, specie, client }) {
+        if (!patientname || !datebirth || !weigth || !heigth || !specie || !client) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -23,26 +22,12 @@ class PatientService {
         const patientrnameAlreadyExists = await patientRepository.findOne({ patientname });
     
         if (patientrnameAlreadyExists) {
-          throw new Error("El nombre de paciente ya esta registrado");
-        }
-
-        const clientRepository = getCustomRepository(ClientsRepository);
-        const cliente = await clientRepository.findOne({clientname})
-        if (!cliente) {
-          throw new Error("No existe esa categoria");
-        }
-        const newPatient = new Patient()
-        newPatient.patientname = patientname
-        newPatient.datebirth = datebirth
-        newPatient.weigth = weigth
-        newPatient.heigth = heigth
+          throw new Error("El nombre de usuario ya esta registrado");
+        }      
+        const patient = patientRepository.create({ patientname, datebirth, weigth, heigth, specie, client });
+        const paciente = await patientRepository.save(patient);
        
-        newPatient.client = cliente.clientname
-       
-      
-        const nuevopatient = await patientRepository.save(newPatient);
-       console.log(nuevopatient);
-
+        return patient;
       }
       async delete(idPatient: string) {
         const patientRepository = getCustomRepository(PatientsRepository);

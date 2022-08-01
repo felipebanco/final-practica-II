@@ -60,18 +60,12 @@
                     <h4>Productos</h4> 
                 </div>
               </a>
-              <a href="./product">
+              <a href="./Category">
                 <div class="option">
-                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
-                    <h4>Productos</h4> 
+                    <i class="fa-solid fa-c" title="Producto"></i>
+                    <h4>Categorias</h4> 
                 </div>
-            </a>
-            <a href="./Category">
-              <div class="option">
-                  <i class="fa-solid fa-c" title="Producto"></i>
-                  <h4>Categorias</h4> 
-              </div>
-            </a>
+              </a>
                 <a href="./" class="logout">
                     <div class="option">
                         <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
@@ -110,25 +104,20 @@
         <div class="input">
           <label for="specie" class="form-label">Especie</label>
           <select class="controls"  name="specie" id="specie" class="form-select">
-              <option value="" selected>Seleccione categoria</option>
-              <option value="gato">Gato</option>
-              <option value="perro">Perro</option>
-              <option value="pez">Pez</option>
+              <option value="" selected>Seleccione Especie</option>
+              <option value="Felino" >Felino</option>
+              <option value="Canino" >Canino</option>
+              <option value="Reptil" >Reptil</option>
           </select>
-        </div>         
+        </div> 
         <div class="input">
-          <label for="clientname" class="form-label">Cliente</label>
-          <select class="controls" name="clientname" id="clientname" class="form-select">
-              <option value="" selected disabled>Seleccione cliente</option>
-              <% clients.forEach(function(client) { %>
-                  <option value="<%= client.clientname %>">
-                      <%= client.clientname %>
-                  </option>
-              <% }) %>
-          </select>
-        </div>  
+          <label for="client" class="form-label">Cliente</label>
+          <input class="controls" type="text" name="client" id="client" class="form-control">
+        </div>
+          <br>
+        </div>         
       </div>
-
+     
       <div class="container-btn">
           <div class="">
             <button type="submit" class="boton">Agregar Paciente</button>

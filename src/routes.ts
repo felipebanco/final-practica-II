@@ -39,7 +39,7 @@ router.get("/addProduct", product.handleAddProduct);
 router.post("/addProduct", product.handleCreateProduct);
 router.get("/searchProduct", product.handleSearchProduct);
 router.get("/editProduct", product.handleGetProduct);
-router.post("/editproduct", product.handleUpdateProduct);
+router.post("/edit-product", product.handleUpdateProduct);
 router.post("/delete-product", product.handleDeleteProduct);
 //---------------------------------Categorias----------------------------------------
 const category = new CategoryControllers();

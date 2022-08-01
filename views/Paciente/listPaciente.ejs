@@ -16,6 +16,15 @@
       <div class="icon__menu">
           <i class="fas fa-bars" id="btn_open"></i>
       </div>
+    </a>
+    
+    <a href="./" class="logout-sesion">
+        <div class="option">
+            <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
+            <h4>Cerrar</h4> 
+        </div>
+    </a>
+  
   </header>
   <div class="menu__side" id="menu_side"> 
       
@@ -30,12 +39,7 @@
                       <h4>Inicio</h4> 
                   </div>
               </a>
-              <a href="./addPaciente"  class="selected" >
-                  <div class="option">
-                      <i class="fa-solid fa-paw" title="Paciente"></i>
-                      <h4>Pacientes</h4>
-                  </div>
-              </a>
+              
               <a href="./Client">
                   <div class="option">
                       <i class="far fa-id-badge" title="Cliente"></i>
@@ -54,19 +58,28 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
-                <a href="./" class="logout">
-                    <div class="option">
-                        <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
-                        <h4>Cerrar Sesión</h4> 
-                    </div>
-                </a>
+              <a href="./listPaciente"  class="selected" >
+                <div class="option">
+                    <i class="fa-solid fa-paw" title="Paciente"></i>
+                    <h4>Pacientes</h4>
+                </div>
+            </a>
+              <a href="./product">
+                <div class="option">
+                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <h4>Productos</h4> 
+                </div>
+              </a>
+              <a href="./Category">
+                <div class="option">
+                    <i class="fa-solid fa-c" title="Producto"></i>
+                    <h4>Categorias</h4> 
+                </div>
+              </a>
+                
       </div>
   </div>
-<!-- <form class="d-flex" action="./searchPaciente" method="GET">
-  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="searchPaciente">
-  <button class="btn secondary-btn" type="submit">Buscar</button>
-</form>
-</div> -->
+
     <div class="center">
       <h4>Pacientes</h4>
     </div>
@@ -76,8 +89,8 @@
         <thead>
           <th scope="col">Nombre</th>
           <th scope="col">Fecha Nacimiento</th>
-          <th scope="col">Peso</th>
-          <th scope="col">Altura</th>
+          <th scope="col">Peso Kg</th>
+          <th scope="col">Altura cm</th>
           <th scope="col">Especie</th>
           <th scope="col">Cliente</th>
           <th scope="col">Creado</th>
@@ -105,16 +118,19 @@
                <td>
                 <%= patient.client%>
               </td>
-              <td>
+              
                 <div class="date">
-                  <div>
+                
+                  <td>
                     <%= patient.created_at.toLocaleDateString() %>
-                  </div>
-                  <div>
-                    <%= patient.created_at.toLocaleTimeString() %>
-                  </div>
+                      <%= patient.created_at.toLocaleTimeString() %>
+                  </td>
+                  <td>
+                    <%= patient.updated_at.toLocaleDateString() %>
+                      <%= patient.updated_at.toLocaleTimeString() %>
+                  </td>
                 </div>
-              </td>
+              
              
               <td>
                 <div class="btn-actions">

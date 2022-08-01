@@ -1,16 +1,10 @@
 import { Request, Response } from "express";
-import { ClientService } from "../services/ClientService";
 import {PatientService} from "../services/PatientService";
 
 class PatientControllers{
 
-  async handleAddPatient(request: Request, response: Response) {
-    const service = new ClientService();
-    const clients = await service.list();
-    response.render("Paciente/addPaciente", {clients})
-  }
   async handleCreatePatient(request: Request, response: Response) {
-      const { patientname, datebirth,weigth, heigth, specie, clientname } = request.body;
+      const { patientname, datebirth,weigth, heigth, specie, client } = request.body;
       const createPatientService = new PatientService();
   
       try {
@@ -20,7 +14,7 @@ class PatientControllers{
             weigth,
             heigth,
             specie,
-            clientname
+            client
         }).then(() => {
           response.render("Paciente/messagePaciente", {
             message: "El paciente fue registrado exitosamente"
@@ -57,26 +51,18 @@ class PatientControllers{
 
     const getPatientDataService = new PatientService();            
     const patient = await getPatientDataService.getData(idPatient);
-    
-    const listarClientes = new ClientService();
-    const client = await listarClientes.list()
 
     return response.render("Paciente/editPaciente", {
-      patient: patient,
-      client: client,
+      patient: patient
     }); 
   } 
   async handleListPatient(request: Request, response: Response) {
     const listPatientService = new PatientService();
     const patient = await listPatientService.list();
 
-    const listarClientes = new ClientService();
-    const client = await listarClientes.list()
-
     return response.render("Paciente/listPaciente", {
-      patient: patient,
-      client: client,
-    }); 
+      patient: patient
+    });
   }
   async handleSearchPatient(request: Request, response: Response) {
     let { search } = request.query;
@@ -98,7 +84,7 @@ class PatientControllers{
   async handleUpdatePatient(request: Request, response: Response) {
     const { idPatient, patientname, datebirth ,weigth, heigth, specie, client} = request.body;
     const updatePatientService = new PatientService();
-
+    
     try {
       await updatePatientService.update({ idPatient, patientname, datebirth ,weigth, heigth, specie, client}).then(() => {
         response.render("Paciente/messagePaciente", {

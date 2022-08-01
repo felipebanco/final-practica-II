@@ -79,11 +79,11 @@ class ClientControllers{
     }
   }
   async handleUpdateClient(request: Request, response: Response) {
-    const {  idClient, clientname, dni,  email, phone, city, state} = request.body;
+    const {  idClient, clientname, dni,  email, phone, city,} = request.body;
     const updateClientService = new ClientService();
 
     try {
-      await updateClientService.update({ idClient, clientname, dni,  email, phone, city}).then(() => {
+      await updateClientService.update({ idClient, clientname, dni,  email, phone, city,}).then(() => {
         response.render("Client/messageClient", {
           message: "Cliente actualizado correctamente"
         });

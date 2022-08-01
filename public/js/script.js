@@ -12,7 +12,7 @@ function counter() {
   }, 200);
 }
 function counterSignIn() {
-  let countdown = 5;
+  let countdown = 7;
 
   let timerDiv = document.getElementById("timer");
 
@@ -20,7 +20,7 @@ function counterSignIn() {
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./signIn"
+      window.location.href = "./"
     }
   }, 200);
 }

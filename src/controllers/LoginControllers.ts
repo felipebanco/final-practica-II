@@ -113,12 +113,12 @@ class LoginControllers{
           message: "Sesion iniciada exitosamente",
         });
         loggedin = true; 
-        // const token:any = generarJWT( usuario.id );
+       
       });
       ;
     } catch (err) {
       response.render("Inicio/messageSignIn", {
-        message: `Error al iniciar usuario: ${err.message}`
+        message: `Error al iniciar tienes que registrarte`
       });
       
     }

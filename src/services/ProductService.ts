@@ -43,13 +43,7 @@ interface IProduct {
         const nuevoproducto = await productsRepository.save(newProduct);
        console.log(nuevoproducto);
   
-        /* const product = productsRepository.create({ productname, price});
-    
-        await productsRepository.save(product);
-        console.log(product);
-        return product;
-         */
-    
+       
       }
       async delete(id: string) {
         const productsRepository = getCustomRepository(ProductsRepository);
@@ -101,7 +95,7 @@ interface IProduct {
         const product = await productsRepository
           .createQueryBuilder()
           .update(Product)
-          .set({ productname, price, categoriaId})
+          .set({ id,productname, price, categoriaId})
           .where("id = :id", { id })
           .execute();
     

@@ -79,8 +79,8 @@
     <hr>
     
     <br>
-    <form action="./editproduct" method="POST">
-      <input type="hidden" name="" value="<%= product.id%>">
+    <form action="./edit-product" method="POST">
+      <input type="hidden" name="id" value="<%= product.id%>">
       <div class="container-input">
         <div class="input">
           <label for="productname" class="form-label">Nombre </label>
@@ -93,8 +93,8 @@
       </div>
       <div class="container-input">
         <div class="input">
-        <label for="name" class="form-label">Categoria</label>
-        <select class="controls" name="name" id="name" class="form-select">
+        <label for="categoriaId" class="form-label">Categoria</label>
+        <select class="controls" name="categoriaId" id="categoriaId" class="form-select">
             <option value="<%= product.categoriaId %>" selected >Seleccione categoria</option>
             <% categories.forEach(function(category) { %>
                 <option value="<%= category.name %>">
