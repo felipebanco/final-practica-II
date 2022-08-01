@@ -8,11 +8,12 @@ interface ILogin {
     id?: string;
     username: string;
     password: string;
-    rol: string
+    rol: string;
+    email: string;
   }
 class LoginService {
-      async create({ username, password, rol }: ILogin) {
-        if (!username || !password || !rol) {
+      async create({ username, password, rol, email}: ILogin) {
+        if (!username || !password  || !rol  || !email) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -24,14 +25,9 @@ class LoginService {
           throw new Error("El nombre de usuario ya esta registrado");
         }
     
-        const login = loginRepository.create({ username, password, rol });
+        const login = loginRepository.create({ username, password, rol, email });
     
         await loginRepository.save(login);
-        
-       
-    
-       
-    
         return login;
       }
 
@@ -78,13 +74,13 @@ class LoginService {
         return login;
     
       }
-      async update({ username, password, rol }: ILogin) {
+      async update({ username, password, rol, email }: ILogin) {
         const loginRepository = getCustomRepository(LoginRepository);
 
         const login = await loginRepository
           .createQueryBuilder()
           .update(Login)
-          .set({ username, password, rol })
+          .set({ username, password, rol, email})
           .where("id = :id", {  })
           .execute();
     
@@ -92,13 +88,13 @@ class LoginService {
     
       }
 
-    async autentication({username, password}: ILogin){
+    async autentication({email, password}: ILogin){
       let autenticado = false;
       const loginRepo = getCustomRepository(LoginRepository);
-      const usuario = await loginRepo.findOne({username})
+      const usuario = await loginRepo.findOne({email})
       let passwordString =password.toString()
       const validPassword = bcrypt.compareSync(passwordString, usuario.password);
-      if (!username && !password) {
+      if (!email && !password) {
         throw new Error("Por favor rellenar todos los campos");
       }
       if (validPassword) {
@@ -107,7 +103,6 @@ class LoginService {
       }
       else{
         throw new Error ("Usuario o contraseña incorrecta");
-        
       }
       
     }

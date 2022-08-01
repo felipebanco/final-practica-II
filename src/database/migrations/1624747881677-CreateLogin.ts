@@ -23,9 +23,11 @@ export class CreateLogin1624747881677 implements MigrationInterface {
                     {
                         name: "rol",
                         type: "varchar"
+                    },                    
+                    {
+                        name: "email",
+                        type: "varchar"
                     },
-                    
-
                     {
                         name: "created_at",
                         type: "timestamp",

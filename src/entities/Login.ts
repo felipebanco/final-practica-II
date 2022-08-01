@@ -14,6 +14,9 @@ class Login {
   @Column()
   rol: string;
 
+  @Column()
+  email: string;
+
   @CreateDateColumn()
   created_at: Date;
 

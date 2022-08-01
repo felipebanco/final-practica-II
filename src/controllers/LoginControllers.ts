@@ -12,7 +12,7 @@ class LoginControllers{
   async handleCreateSingUp(request: Request, response: Response) {
       
       
-      const { username,rol } = request.body;
+      const { username,rol,email } = request.body;
       let password = request.body;
       let pass = await bcrypt.hash(request.body.password, 2);
       const createUserService = new LoginService();
@@ -21,7 +21,8 @@ class LoginControllers{
         await createUserService.create({
           username,
           password: pass,
-          rol
+          rol,
+          email
         }).then(() => {
           response.render("index");
         });
@@ -85,11 +86,11 @@ class LoginControllers{
     }
   }
   async handleUpdateUser(request: Request, response: Response) {
-    const { id, username, password, rol } = request.body;
+    const { id, username, password, rol, email} = request.body;
     const updateUserService = new LoginService();
 
     try {
-      await updateUserService.update({ username, password,rol }).then(() => {
+      await updateUserService.update({ username, password,rol,email }).then(() => {
         response.render("Empleados/message", {
           message: "Usuario actualizado correctamente"
         });
@@ -102,13 +103,13 @@ class LoginControllers{
 
   }
   async signInAutentication(request: Request, response: Response){
-    const { username, password,rol} = request.body;
+    const { username, password,rol, email} = request.body;
     var loggedin = false;
 
     const singInAutenticationService = new LoginService();
     
     try {
-      await singInAutenticationService.autentication({ username, password,rol}).then(() => {
+      await singInAutenticationService.autentication({ username, password,rol, email}).then(() => {
         response.render("index", {
           message: "Sesion iniciada exitosamente",
         });
