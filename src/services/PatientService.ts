@@ -1,6 +1,8 @@
 import { getCustomRepository } from "typeorm";
 import { PatientsRepository } from "../repositories/PatientRepository";
 import { Patient } from "../entities/Patient";
+import { ClientsRepository } from "../repositories/ClientRepository";
+import { ProductsRepository } from "../repositories/ProductsRepository";
 
 interface IPatient {
     idPatient?: string;
@@ -12,8 +14,8 @@ interface IPatient {
     client: string;
   }
 class PatientService {
-      async create({ patientname, datebirth,weigth, heigth, specie, client }) {
-        if (!patientname || !datebirth || !weigth || !heigth || !specie || !client) {
+      async create({ patientname, datebirth,weigth, heigth, specie, clientname }) {
+        if (!patientname || !datebirth || !weigth || !heigth || !specie || !clientname) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -24,10 +26,23 @@ class PatientService {
         if (patientrnameAlreadyExists) {
           throw new Error("El nombre de usuario ya esta registrado");
         }      
-        const patient = patientRepository.create({ patientname, datebirth, weigth, heigth, specie, client });
-        const paciente = await patientRepository.save(patient);
-       
-        return patient;
+        const categoryRepository = getCustomRepository(ClientsRepository)
+
+        const categoria = await categoryRepository.findOne({clientname})
+
+        if(!categoria){
+          throw new Error("No existe esa categoria");
+        }
+       const newPatient = new Patient()
+       newPatient.patientname = patientname
+       newPatient.datebirth = datebirth
+       newPatient.weigth = weigth
+       newPatient.heigth = heigth
+       newPatient.specie = specie
+       newPatient.client = clientname
+
+       const nuevopaciente = await patientRepository.save(newPatient);
+        return nuevopaciente;
       }
       async delete(idPatient: string) {
         const patientRepository = getCustomRepository(PatientsRepository);

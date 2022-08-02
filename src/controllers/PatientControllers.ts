@@ -1,20 +1,26 @@
 import { Request, Response } from "express";
+import { CategoryService } from "../services/CategoryService";
+import { ClientService } from "../services/ClientService";
 import {PatientService} from "../services/PatientService";
 
 class PatientControllers{
-
+  async handleAddPatient(request: Request, response: Response){
+    const service = new ClientService();
+    const clients = await service.list();
+    response.render("Paciente/addPaciente", {clients});
+  }
   async handleCreatePatient(request: Request, response: Response) {
-      const { patientname, datebirth,weigth, heigth, specie, client } = request.body;
-      const createPatientService = new PatientService();
+      const { patientname, datebirth,weigth, heigth, specie, clientname } = request.body;
+      const service = new PatientService();
   
       try {
-        await createPatientService.create({
+        await service.create({
           patientname,
             datebirth,
             weigth,
             heigth,
             specie,
-            client
+            clientname
         }).then(() => {
           response.render("Paciente/messagePaciente", {
             message: "El paciente fue registrado exitosamente"
@@ -52,16 +58,21 @@ class PatientControllers{
     const getPatientDataService = new PatientService();            
     const patient = await getPatientDataService.getData(idPatient);
 
+    const listClient = new ClientService();
+    const client = await listClient.list()
     return response.render("Paciente/editPaciente", {
-      patient: patient
+      patient: patient,
+      clients: client
     }); 
   } 
   async handleListPatient(request: Request, response: Response) {
     const listPatientService = new PatientService();
     const patient = await listPatientService.list();
-
+    const listClient = new CategoryService();
+    const client = await listClient.list()
     return response.render("Paciente/listPaciente", {
-      patient: patient
+      patient: patient,
+      clients: client
     });
   }
   async handleSearchPatient(request: Request, response: Response) {
@@ -99,4 +110,4 @@ class PatientControllers{
 
   }
 }
-export{PatientControllers};
+export default PatientControllers;

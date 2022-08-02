@@ -81,7 +81,7 @@ class QueryService {
         const query = await queryRepository
           .createQueryBuilder()
           .update(Query)
-          .set({ queryname, reason, diagnosis })
+          .set({ queryname,patientId, reason, diagnosis })
           .where("idQuery = :idQuery", { idQuery })
           .execute();
     

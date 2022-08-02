@@ -3,7 +3,7 @@ import {UserControllers} from "./controllers/UserControllers";
 import ProductControllers from "./controllers/ProductControllers";
 import CategoryControllers from "./controllers/CategoryControllers";
 import { LoginControllers } from "./controllers/LoginControllers";
-import { PatientControllers } from "./controllers/PatientControllers";
+import  PatientControllers  from "./controllers/PatientControllers";
 import { ClientControllers } from "./controllers/ClientControllers";
 import { MedicalControllers} from "./controllers/MedicalControllers";
 import { QueryControllers } from "./controllers/QueryControllers";

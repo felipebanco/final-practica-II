@@ -78,7 +78,7 @@ class QueryControllers{
     }
   }
   async handleUpdateQuery(request: Request, response: Response) {
-    const { idQuery, queryname, patientId, datequery, reason, diagnosis } = request.body;
+    const { idQuery, queryname, patientId, reason, diagnosis } = request.body;
     const updateQueryService = new QueryService();
 
     try {

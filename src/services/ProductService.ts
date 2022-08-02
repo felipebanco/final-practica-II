@@ -89,13 +89,13 @@ interface IProduct {
         return product;
     
       }
-      async update({ id, productname, price, categoriaId }: IProduct) {
+      async update({id,productname, price, categoriaId }: IProduct) {
         const productsRepository = getCustomRepository(ProductsRepository);
     
         const product = await productsRepository
           .createQueryBuilder()
           .update(Product)
-          .set({ id,productname, price, categoriaId})
+          .set({ productname, price, categoriaId})
           .where("id = :id", { id })
           .execute();
     

@@ -111,11 +111,16 @@
           </select>
         </div> 
         <div class="input">
-          <label for="client" class="form-label">Cliente</label>
-          <input class="controls" type="text" name="client" id="client" class="form-control">
+          <label for="clientname" class="form-label">Cliente</label>
+          <select class="controls" name="clientname" id="clientname">
+            <option value="" selected>Seleccione cliente</option>
+            <% client.forEach(function(client) { %>
+              <option value="<%= client.clientname %>">
+                <%= client.clientname %>
+              </option>
+              <% }) %>
+          </select>
         </div>
-          <br>
-        </div>         
       </div>
      
       <div class="container-btn">
