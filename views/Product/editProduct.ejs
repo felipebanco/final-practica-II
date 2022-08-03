@@ -88,14 +88,14 @@
         </div>
         <div class="input">
           <label for="price" class="form-label">Precio</label>
-          <input class="controls" type="text" name="price" id="price" class="form-control" value="<%= product.price %>">
+          <input class="controls" type="number" name="price" id="price" class="form-control" value="<%= product.price %>">
         </div>
       </div>
       <div class="container-input">
         <div class="input">
         <label for="categoriaId" class="form-label">Categoria</label>
         <select class="controls" name="categoriaId" id="categoriaId" class="form-select">
-            <option value="<%= product.categoriaId %>" selected >Seleccione categoria</option>
+            <option value="" selected ><%= product.categoriaId %></option>
             <% categories.forEach(function(category) { %>
                 <option value="<%= category.name %>">
                     <%= category.name %>

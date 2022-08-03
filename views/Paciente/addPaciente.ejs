@@ -93,11 +93,11 @@
       <div class="container-input">
         <div class="input">
           <label for="weigth" class="form-label">Peso</label>
-          <input class="controls" type="text" name="weigth" id="weigth" class="form-control">
+          <input class="controls" type="number" min="0" max="100" name="weigth" id="weigth" class="form-control">
         </div>
         <div class="input">
           <label for="heigth" class="form-label">Altura</label>
-          <input class="controls" type="text" name="heigth" id="heigth" class="form-control">
+          <input class="controls" type="number" min="0" max="100" name="heigth" id="heigth" class="form-control">
         </div>
       </div>
       <div class="container-input">
@@ -114,7 +114,7 @@
           <label for="clientname" class="form-label">Cliente</label>
           <select class="controls" name="clientname" id="clientname">
             <option value="" selected>Seleccione cliente</option>
-            <% client.forEach(function(client) { %>
+            <% clients.forEach(function(client) { %>
               <option value="<%= client.clientname %>">
                 <%= client.clientname %>
               </option>

@@ -88,7 +88,7 @@
         </div>
         <div class="input">
           <label for="dni" class="form-label">DNI </label>
-          <input class="controls" type="text" name="dni" id="dni" class="form-control" value="<%= client.dni%>">
+          <input class="controls" type="number" name="dni" id="dni" class="form-control" value="<%= client.dni%>">
         </div>
       </div>
       <div class="container-input">
@@ -98,14 +98,14 @@
         </div>
         <div class="input">
           <label for="phone" class="form-label">Teléfono</label>
-          <input class="controls" type="text" name="phone" id="phone" class="form-control" value="<%= client.phone %>">
+          <input class="controls" type="number" name="phone" id="phone" class="form-control" value="<%= client.phone %>">
         </div>
       </div>
       <div class="container-input">
         <div class="input">
           <label for="city" class="form-label">Departamento</label>
           <select class="controls" name="city" id="city" class="form-select" value="<%= client.city %>">
-            <option value="<%= client.city %>" selected>Seleccione su departamento</option>
+            <option value="" selected><%= client.city %></option>
             <option value="Capital">Capital</option>
             <option value="Gral Alvear">General Alvear</option>
             <option value="Godoy Cruz">Godoy Cruz</option>

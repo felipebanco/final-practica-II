@@ -55,10 +55,8 @@ router.post("/delete-category", category.handleDeleteCategory);
 const patient = new PatientControllers();
 
 router.get("/listPaciente",patient.handleListPatient);
-router.get("/addPaciente", (request, response) => {
-  response.render("Paciente/addPaciente");});
 router.post("/addPaciente", patient.handleCreatePatient);
-router.post("/addPatient", patient.handleCreatePatient);
+router.get("/addPaciente", patient.handleAddPatient);
 router.get("/searchPaciente", patient.handleSearchPatient);
 router.get("/editPatient", patient.handleGetPatient);
 router.post("/edit-patient", patient.handleUpdatePatient);
