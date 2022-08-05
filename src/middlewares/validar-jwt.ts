@@ -2,50 +2,26 @@ import jwt from 'jsonwebtoken'
 import { getCustomRepository } from 'typeorm';
 import { UsersRepository } from "../repositories/UsersRepository";
 import  { LocalStorage } from 'node-localstorage';
+const {promisify} = require('util')
 
 const localStorage = new LocalStorage('./scratch');
-
 export const validarJWT = async ( req, res, next ) => {
+   
+   try {
+        let token = localStorage.getItem('x-token')
 
-    try {
-    let token = JSON.parse(localStorage.getItem('x-token'))
-        
-        
-
-    const usersRepository = getCustomRepository(UsersRepository);
-    
- 
-    
     if( !token ) {
-        return res.status(401).json({
-            msg: 'No hay token en la peticion'
-        });
-    }
-
-
-
-        const { id } = jwt.verify( token, '123');
-
-        const usuario = await usersRepository.findOne(id)
-
-
-        if ( !usuario ) {
-            return res.status(401) ({
-                msg: 'Token no valido -usuario no existe DB'
-
-            })
-        }
-
-
-        req.usuario = usuario;
-        next();
+        console.log("falta token")
+        res.redirect("/");
         
+    }else{
+        next()
+    }   
+
     } catch (error) {
-        console.log(error);
-        res.status(401).render("logueate")
+        console.log(error)
     }
-
-
-
-
+        
+      
+  
 } 

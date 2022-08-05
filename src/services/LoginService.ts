@@ -2,7 +2,7 @@ import { getCustomRepository } from "typeorm";
 import { LoginRepository } from "../repositories/LoginRepository";
 import { Login } from "../entities/Login";
 import bcrypt from 'bcrypt'
-import config from "../config";
+
 
 interface ILogin {
     id?: string;
@@ -98,14 +98,14 @@ class LoginService {
         throw new Error("Por favor rellenar todos los campos");
       }
       if (validPassword) {
-        autenticado = true;
+        autenticado = true;       
         return true;
       }
       else{
         throw new Error ("Usuario o contraseña incorrecta");
       }
       
-    }
+    }   
   
 
 }

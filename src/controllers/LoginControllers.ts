@@ -4,7 +4,8 @@ import bcrypt from 'bcrypt';
 import  { LocalStorage } from 'node-localstorage';
 const localStorage = new LocalStorage('./scratch');
 import {LoginRepository} from "../repositories/LoginRepository"
-
+import {generarJWT} from "../helpers/generarToken"
+import { response } from "express";
 
 
 class LoginControllers{
@@ -105,16 +106,28 @@ class LoginControllers{
   async signInAutentication(request: Request, response: Response){
     const { username, password,rol, email} = request.body;
     var loggedin = false;
-
+    
     const singInAutenticationService = new LoginService();
     
     try {
       await singInAutenticationService.autentication({ username, password,rol, email}).then(() => {
-        response.render("index", {
-          message: "Sesion iniciada exitosamente",
-        });
+        const usuario = {username:username,password:password,rol:rol}
+        // Generar el JWT
+        const token:any = generarJWT(usuario );
+        console.log(token)
+        //guardarlo en el local starage
+        localStorage.setItem('x-token',token)
+       /*  const cookie ={
+          expires:new Date(Date.now()+ 90 *24*60*60*1000),
+          httpOnly:true 
+        }*/
+        // response.cookie('jwt',token,cookie)
+       response.render("index", {
+          usuario,
+          token,                
+        });         
         loggedin = true; 
-       
+        
       });
       ;
     } catch (err) {

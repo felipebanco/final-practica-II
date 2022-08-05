@@ -141,7 +141,7 @@
                     </form>
                   </div>
                   <div>
-                    <form action="./delete-patient" method="POST">
+                    <form action="./delete-patient" method="POST" onclick="return confirm('¿Estas seguro que deseas eliminar?')" >
                       <input type="hidden" name="idPatient" value="<%= patient.idPatient%>">
                       <button type="submit" class=" delete-btn"><i class="fa-solid fa-trash"></i></button>
                     </form>
@@ -153,6 +153,7 @@
         </tbody>
       </table>
     </div>
+    <!-- onclick= "return confirmar(idPatient)" -->
       <div class="btn">
         <a href="./addPaciente" class="boton">Agregar Paciente</a>
       </div>
@@ -161,5 +162,62 @@
       crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <script src="js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
+   
+    <script>
+    function confirmar(idPatient) {
+      /* Swal.fire({
+          title: '¿Confirma eliminar el registro: '+idPatient+'?',
+          icon: 'warning',
+          showCancelButton: false,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#6c757d',
+          confirmButtonText: 'Confirmar',
+          timer:'1000'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            }
+      }); */
+              const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+          },
+          buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire(
+              'Cancelled',
+              'Your imaginary file is safe :)',
+              'error'
+            )
+          }
+        })
+    };
+    </script>
   </body>
   

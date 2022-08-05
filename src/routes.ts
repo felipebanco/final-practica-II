@@ -7,6 +7,7 @@ import  PatientControllers  from "./controllers/PatientControllers";
 import { ClientControllers } from "./controllers/ClientControllers";
 import { MedicalControllers} from "./controllers/MedicalControllers";
 import { QueryControllers } from "./controllers/QueryControllers";
+import { validarJWT } from "./middlewares/validar-jwt";
 
 
 //----------------------------Empleados--------------------------------------------
@@ -34,7 +35,7 @@ router.post("/edit-user", controllers.handleUpdateUser);
 router.post("/delete-user", controllers.handleDeleteUser);
 //-------------------------------Productos------------------------------------------
 const product = new ProductControllers();
-router.get("/product", product.handleListProduct);
+router.get("/product", validarJWT,product.handleListProduct);
 router.get("/addProduct", product.handleAddProduct);
 router.post("/addProduct", product.handleCreateProduct);
 router.get("/searchProduct", product.handleSearchProduct);
