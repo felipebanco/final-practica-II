@@ -37,7 +37,7 @@ function counterSignUp() {
     }
   }, 200);
 }
-function counterQuery() {
+function counterOferta() {
   let countdown = 5;
 
   let timerDiv = document.getElementById("timer");
@@ -47,7 +47,7 @@ function counterQuery() {
     countdown--;
     if (countdown === 0) {
       clearInterval(timer);
-      window.location.href = "./query"
+      window.location.href = "./oferta"
     }
   }, 200);
 }

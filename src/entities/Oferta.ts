@@ -1,29 +1,23 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("medicals")
-class Medical {
+@Entity("ofertas")
+class Oferta {
 
   @PrimaryColumn()
-  idMedical: string;
+  idOferta: string;
 
   @Column()
-  medicalname: string;
+  fecha: Date;
 
   @Column()
-  email: string;
+  puesto: string;
+  
+  @Column()
+  ubicacion: string;
 
   @Column()
-  phone: string;
-
-  @Column()
-  address: string;
-
-  @Column()
-  specialty: string;
-
-  @Column()
-  datebirth: Date;
+  requisitos: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -32,11 +26,11 @@ class Medical {
   updated_at: Date;
 
   constructor() {
-    if (!this.idMedical) {
-      this.idMedical = uuid();
+    if (!this.idOferta) {
+      this.idOferta = uuid();
     }
   }
 
 }
 
-export { Medical };
+export { Oferta };

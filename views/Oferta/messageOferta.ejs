@@ -13,7 +13,7 @@
   <script src="https://kit.fontawesome.com/20f8330ac2.js" crossorigin="anonymous"></script>
 
 </head>
-<body id="body" onload="counterProducto()">
+<body id="body">
   <header>
       <div class="icon__menu">
           <i class="fas fa-bars" id="btn_open"></i>
@@ -44,10 +44,10 @@
                       <h4>Cliente</h4>
                   </div>
               </a>
-              <a href="./query" >
-                  <div class="option">
+              <a href="./oferta">
+                  <div class="option" class="selected">
                       <i class="fa-solid fa-file-lines" title="Consulta"></i>
-                      <h4>Consulta</h4>
+                      <h4>Oferta</h4>
                   </div>
               </a>
               <a href="./ListLogin">
@@ -56,12 +56,18 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
-              <a href="./product" class="selected">
+              <a href="./product">
                 <div class="option">
                     <i class="fa-brands fa-product-hunt" title="Producto"></i>
                     <h4>Productos</h4> 
                 </div>
-              </a>
+            </a>
+            <a href="./Category">
+              <div class="option">
+                  <i class="fa-solid fa-c" title="Producto"></i>
+                  <h4>Categorias</h4> 
+              </div>
+            </a>
                 <a href="./" class="logout">
                     <div class="option">
                         <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
@@ -70,6 +76,7 @@
                 </a>
       </div>
   </div>
+<body onload="counterOferta()">
   <div id="modal_container" class="modal-container show">
     <div class="modal">
       <h4>
@@ -84,6 +91,7 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
+  <script src="js/menu.js"></script>
 </body>
 
 </html>

@@ -16,12 +16,6 @@
       <div class="icon__menu">
           <i class="fas fa-bars" id="btn_open"></i>
       </div>
-      <a href="./" class="logout-sesion">
-        <div class="option">
-            <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
-            <h4>Cerrar</h4> 
-        </div>
-    </a>
   </header>
   <div class="menu__side" id="menu_side"> 
       
@@ -36,17 +30,22 @@
                       <h4>Inicio</h4> 
                   </div>
               </a>
-              
-              <a href="./Client" >
+              <a href="./addPaciente" >
+                  <div class="option">
+                      <i class="fa-solid fa-paw" title="Paciente"></i>
+                      <h4>Pacientes</h4>
+                  </div>
+              </a>
+              <a href="./Client">
                   <div class="option">
                       <i class="far fa-id-badge" title="Cliente"></i>
                       <h4>Cliente</h4>
                   </div>
               </a>
-              <a href="./query" >
+              <a href="./oferta" class="selected">
                   <div class="option">
                       <i class="fa-solid fa-file-lines" title="Consulta"></i>
-                      <h4>Consulta</h4>
+                      <h4>Oferta</h4>
                   </div>
               </a>
               <a href="./ListLogin">
@@ -55,75 +54,63 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
-              <a href="./listPaciente" >
-                <div class="option">
-                    <i class="fa-solid fa-paw" title="Paciente"></i>
-                    <h4>Pacientes</h4>
-                </div>
-            </a>
               <a href="./product">
                 <div class="option">
                     <i class="fa-brands fa-product-hunt" title="Producto"></i>
                     <h4>Productos</h4> 
                 </div>
             </a>
-            <a href="./Category" class="selected">
+            <a href="./Category">
               <div class="option">
                   <i class="fa-solid fa-c" title="Producto"></i>
                   <h4>Categorias</h4> 
               </div>
             </a>
-               
+                <a href="./" class="logout">
+                    <div class="option">
+                        <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
+                        <h4>Cerrar Sesión</h4> 
+                    </div>
+                </a>
       </div>
   </div>
-  <div class="center">
-    <h4>Categoria</h4>
-  </div>
-  <br>
-  <div class="container-table" >
-      <table>
-      <thead>
-        
-        <th scope="col">Nombre de la categoria</th>
-        <th scope="col">Creado</th>
-        <th scope="col">Actualizado</th>
-        <th scope="col" >Opciones</th>
-      </thead>
-      <tbody>
-        <% category.forEach(function(category) { %>
-          <tr>
-            
-            <td>
-              <%= category.name.toUpperCase()%>
-            </td>
-            <td>
-              <%= category.created_at.toLocaleDateString() %>
-                <%= category.created_at.toLocaleTimeString() %>
-            </td>
-            <td>
-              <%= category.updated_at.toLocaleDateString() %>
-                <%= category.updated_at.toLocaleTimeString() %>
-            </td>            
-            <td>
-              <div class="btn-actions">
-                  <form action="./delete-category" method="POST">
-                    <input type="hidden" name="id" value="<%= category.id %>">
-                    <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                  </form>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <% }) %>
-      </tbody>
-    </table>
+  <div class="form-register">
+    <h2>Ingresar Datos</h2>
+    <hr>
     <br>
-    <br>
-    <div class="btn">
-      <a href="./addCategory" class="boton">Agregar Categoria</a>
-    </div>
+    <form action="./addOferta" method="POST">
+      <div class="container-input">
+        <div class="input">
+          <label for="fecha" class="form-label">Fecha</label>
+          <input class="controls" type="date" name="fecha" id="fecha" class="form-control">
+        </div>
+        <div class="input">
+          <label for="puesto" class="form-label">Puesto</label>
+          <input class="controls" name="puesto" id="puesto" class="form-control">
+        </div>
+      </div>
+      <br>
+      <div class="container-input">
+        <div class="input">
+          <label for="ubicacion" class="form-label">Ubicacion</label>
+          <input class="controls" type="text" name="ubicacion" id="ubicacion" class="form-control">
+        </div>
+        <div class="input">
+          <label for="requisitos" class="form-label">Requisitos</label>
+          <input class="controls" type="text" name="requisitos" id="requisitos class="form-control">
+        </div>        
+      </div>
+        <div class="container-btn">
+          <div>
+            <button type="submit" class="boton">Publicar Oferta</button>
+          </div>
+          <div>
+            <a href="./oferta" class="boton">Volver</a>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-</div> 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>

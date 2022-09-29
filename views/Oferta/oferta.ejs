@@ -24,16 +24,11 @@
     </a>
   </header>
   <div class="menu__side" id="menu_side"> 
-      
-      <div class="name__page"> 
-          <i class="fa-solid fa-shield-dog"></i>
-          <h4>MyVet</h4>
-      </div>
       <div class="options__menu">
               <a href="/index" >
                   <div class="option">
-                      <i class="fas fa-home" title="Inicio"></i>
-                      <h4>Inicio</h4> 
+                      <i class="fas fa-home" title="Home"></i>
+                      <h4>Home</h4> 
                   </div>
               </a>
              
@@ -43,10 +38,10 @@
                       <h4>Cliente</h4>
                   </div>
               </a>
-              <a href="./query" class="selected">
+              <a href="./oferta" class="selected">
                   <div class="option">
-                      <i class="fa-solid fa-file-lines" title="Consulta"></i>
-                      <h4>Consulta</h4>
+                      <i class="fa-solid fa-file-lines" title="Oferta"></i>
+                      <h4>Oferta</h4>
                   </div>
               </a>
               <a href="./ListLogin">
@@ -55,76 +50,59 @@
                       <h4>Usuarios</h4> 
                   </div>
               </a>
-              <a href="./listPaciente" >
-                <div class="option">
-                    <i class="fa-solid fa-paw" title="Paciente"></i>
-                    <h4>Pacientes</h4>
-                </div>
-            </a>
-              <a href="./product">
-                <div class="option">
-                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
-                    <h4>Productos</h4> 
-                </div>
-            </a>
-            <a href="./Category">
-              <div class="option">
-                  <i class="fa-solid fa-c" title="Producto"></i>
-                  <h4>Categorias</h4> 
-              </div>
-            </a>
+              
                 
       </div>
   </div>
   <div class="center">
-    <h4>Consultas</h4>
+    <h4>Ofertas</h4>
   </div>
   <br>
   <div class="container-table" >
       <table>
         <thead>
-          <th scope="col">Medico</th>
-          <th scope="col">paciente</th>
-          <th scope="col">Motivo de Consulta</th>
-          <th scope="col">Diagnostico</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Puesto</th>
+          <th scope="col">Ubicacion</th>
+          <th scope="col">Requisitos</th>
           <th scope="col">Creado</th>
           <th scope="col">Actualizado</th>
           <th scope="col">Opciones</th>
         </thead>
         <tbody>
-          <% query.forEach(function(query) { %>
+          <% oferta.forEach(function(oferta) { %>
             <tr>
               <td>
-                <%= query.queryname %>
+                <%= oferta.fecha %>
               </td>
               <td>
-                <%= query.patientId%>
+                <%= oferta.puesto%>
               </td>   
               <td>
-                <%= query.reason%>
+                <%= oferta.ubicacion%>
               </td>
               <td>
-                <%= query.diagnosis%>
+                <%= oferta.requisitos%>
               </td>
               <td>
-                <%= query.created_at.toLocaleDateString() %>
-                  <%= query.created_at.toLocaleTimeString() %>
+                <%= oferta.created_at.toLocaleDateString() %>
+                  <%= oferta.created_at.toLocaleTimeString() %>
               </td>
               <td>
-                <%= query.updated_at.toLocaleDateString() %>
-                  <%= query.updated_at.toLocaleTimeString() %>
+                <%= oferta.updated_at.toLocaleDateString() %>
+                  <%= oferta.updated_at.toLocaleTimeString() %>
               </td>            
               <td>
                 <div class="btn-actions">
                   <div>
-                    <form action="./editQuery" method="GET">
-                      <input type="hidden" name="idQuery" value="<%= query.idQuery %>">
+                    <form action="./editOferta" method="GET">
+                      <input type="hidden" name="idOferta" value="<%= oferta.idOferta %>">
                       <button type="submit" class="edit-btn"><i class="fa-solid fa-pencil"></i></button>
                     </form>
                   </div>
                   <div>
-                    <form action="./delete-query" method="POST">
-                      <input type="hidden" name="idQuery" value="<%= query.idQuery %>">
+                    <form action="./delete-oferta" method="POST">
+                      <input type="hidden" name="idOferta" value="<%= oferta.idOferta %>">
                       <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                     </form>
                   </div> 
@@ -136,7 +114,7 @@
       </table>
     </div>
       <div class="btn">
-        <a href="./addQuery" class="boton">Agregar Consulta</a>
+        <a href="./addOferta" class="boton">Agregar Oferta</a>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
