@@ -4,12 +4,11 @@ import {OfertaService} from "../services/OfertaService";
 class OfertaControllers{
 
   async handleCreateOferta(request: Request, response: Response) {
-      const {  fecha, puesto, ubicacion, requisitos  } = request.body;
+      const {  puesto, ubicacion, requisitos  } = request.body;
       const createOfertaService = new OfertaService();
   
       try {
         await createOfertaService.create({
-            fecha,
             puesto,
             ubicacion,
             requisitos,
@@ -74,7 +73,7 @@ class OfertaControllers{
       });
     } catch (err) {
       response.render("Oferta/messageOferta", {
-        message: `Error al buscar consulta: ${err.message}`
+        message: `Error al buscar Oferta: ${err.message}`
       });
     }
   }
@@ -83,14 +82,14 @@ class OfertaControllers{
     const updateOfertaService = new OfertaService();
 
     try {
-      await updateOfertaService.update({ idOferta, fecha, puesto, ubicacion, requisitos }).then(() => {
+      await updateOfertaService.update({ idOferta, puesto, ubicacion, requisitos }).then(() => {
         response.render("Oferta/messageOferta", {
-          message: "Consulta actualizado correctamente"
+          message: "Oferta actualizado correctamente"
         });
       });
     } catch (err) {
       response.render("Oferta/messageOferta", {
-        message: `Consulta al actualizar usuario: ${err.message}`
+        message: `Oferta al actualizar usuario: ${err.message}`
       });
     }
 

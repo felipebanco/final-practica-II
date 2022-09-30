@@ -4,14 +4,13 @@ import { Oferta } from "../entities/Oferta";
 
 interface IOferta {
     idOferta?: string;
-    fecha: string;
     puesto: string;
     ubicacion: string;
     requisitos: string;
   }
 class OfertaService {
-      async create({ fecha, puesto, ubicacion, requisitos }: IOferta) {
-        if (!fecha || !puesto || !ubicacion || !requisitos) {
+      async create({ puesto, ubicacion, requisitos }: IOferta) {
+        if ( !puesto || !ubicacion || !requisitos) {
           throw new Error("Por favor rellenar todos los campos");
         }
     
@@ -23,7 +22,7 @@ class OfertaService {
           throw new Error("La oferta ya esta registrado");
         }
     
-        const oferta = ofertaRepository.create({ fecha,puesto, ubicacion, requisitos});
+        const oferta = ofertaRepository.create({ puesto, ubicacion, requisitos});
     
         await ofertaRepository.save (oferta);
     
@@ -37,7 +36,7 @@ class OfertaService {
           .createQueryBuilder()
           .delete()
           .from(Oferta)
-          .where("id = :id", { idOferta })
+          .where("idOferta = :idOferta", { idOferta })
           .execute();
     
         return oferta;
@@ -74,13 +73,13 @@ class OfertaService {
         return oferta;
     
       }
-      async update({ idOferta, fecha, puesto, ubicacion, requisitos }: IOferta) {
+      async update({ idOferta,  puesto, ubicacion, requisitos }: IOferta) {
         const ofertaRepository = getCustomRepository(OfertasRepository);
     
         const oferta = await ofertaRepository
           .createQueryBuilder()
           .update(Oferta)
-          .set({ fecha,puesto, ubicacion, requisitos })
+          .set({ puesto, ubicacion, requisitos })
           .where("idOferta = :idOferta", { idOferta })
           .execute();
     

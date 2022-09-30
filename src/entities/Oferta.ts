@@ -8,9 +8,6 @@ class Oferta {
   idOferta: string;
 
   @Column()
-  fecha: Date;
-
-  @Column()
   puesto: string;
   
   @Column()

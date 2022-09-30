@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateOferta1624747881677 implements MigrationInterface {
+export class CreateOfertas1624747881677 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
@@ -11,10 +11,6 @@ export class CreateOferta1624747881677 implements MigrationInterface {
                         name: "idOferta",
                         type: "uuid",
                         isPrimary: true
-                    },
-                    {
-                        name: "fecha",
-                        type: "date"
                     },
                     {
                         name: "puesto",

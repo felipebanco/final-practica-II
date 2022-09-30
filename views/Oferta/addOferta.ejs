@@ -8,7 +8,6 @@
   <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/nav.css">
-  <script src="https://kit.fontawesome.com/20f8330ac2.js" crossorigin="anonymous"></script>
 
 </head>
 <body id="body" onload="open_close_menu()">
@@ -19,27 +18,17 @@
   </header>
   <div class="menu__side" id="menu_side"> 
       
-      <div class="name__page"> 
-          <i class="fa-solid fa-shield-dog"></i>
-          <h4>MyVet</h4>
-      </div>
       <div class="options__menu">
               <a href="/index" >
                   <div class="option">
                       <i class="fas fa-home" title="Inicio"></i>
-                      <h4>Inicio</h4> 
+                      <h4>Home</h4> 
                   </div>
               </a>
-              <a href="./addPaciente" >
+              <a href="" >
                   <div class="option">
                       <i class="fa-solid fa-paw" title="Paciente"></i>
-                      <h4>Pacientes</h4>
-                  </div>
-              </a>
-              <a href="./Client">
-                  <div class="option">
-                      <i class="far fa-id-badge" title="Cliente"></i>
-                      <h4>Cliente</h4>
+                      <h4>Solicitudes</h4>
                   </div>
               </a>
               <a href="./oferta" class="selected">
@@ -48,42 +37,29 @@
                       <h4>Oferta</h4>
                   </div>
               </a>
-              <a href="./ListLogin">
+              <a href="">
                   <div class="option">
                       <i class="fa-solid fa-stethoscope" title="Usuarios"></i>
-                      <h4>Usuarios</h4> 
+                      <h4>Técnico-RRHH</h4> 
                   </div>
               </a>
-              <a href="./product">
+              <a href="">
                 <div class="option">
                     <i class="fa-brands fa-product-hunt" title="Producto"></i>
-                    <h4>Productos</h4> 
+                    <h4>Cuenta</h4> 
                 </div>
             </a>
-            <a href="./Category">
-              <div class="option">
-                  <i class="fa-solid fa-c" title="Producto"></i>
-                  <h4>Categorias</h4> 
-              </div>
-            </a>
-                <a href="./" class="logout">
-                    <div class="option">
-                        <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
-                        <h4>Cerrar Sesión</h4> 
-                    </div>
-                </a>
       </div>
   </div>
   <div class="form-register">
-    <h2>Ingresar Datos</h2>
-    <hr>
+    <h2>Ingresar Datos de la Oferta</h2>
     <br>
     <form action="./addOferta" method="POST">
       <div class="container-input">
-        <div class="input">
+        <!-- <div class="input">
           <label for="fecha" class="form-label">Fecha</label>
           <input class="controls" type="date" name="fecha" id="fecha" class="form-control">
-        </div>
+        </div> -->
         <div class="input">
           <label for="puesto" class="form-label">Puesto</label>
           <input class="controls" name="puesto" id="puesto" class="form-control">
