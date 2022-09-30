@@ -12,10 +12,11 @@
 </head>
 <body id="body" onload="open_close_menu()">
   <header>
-      <div class="icon__menu">
-          <i class="fas fa-bars" id="btn_open"></i>
-      </div>
-  </header>
+    <div class="encabezado">
+      <h1>Sistema Bolsa de Empleo</h1>
+    </div>
+  </a>
+</header>
   <div class="menu__side" id="menu_side"> 
       
       <div class="options__menu">
@@ -27,25 +28,25 @@
               </a>
               <a href="" >
                   <div class="option">
-                      <i class="fa-solid fa-paw" title="Paciente"></i>
+                      <i class="fa-solid fa-paw" title="Solicitudes"></i>
                       <h4>Solicitudes</h4>
                   </div>
               </a>
               <a href="./oferta" class="selected">
                   <div class="option">
-                      <i class="fa-solid fa-file-lines" title="Consulta"></i>
+                      <i class="fa-solid fa-file-lines" title="Ofertas"></i>
                       <h4>Oferta</h4>
                   </div>
               </a>
               <a href="">
                   <div class="option">
-                      <i class="fa-solid fa-stethoscope" title="Usuarios"></i>
+                      <i class="fa-solid fa-stethoscope" title="Tecnico-RRHH"></i>
                       <h4>Técnico-RRHH</h4> 
                   </div>
               </a>
               <a href="">
                 <div class="option">
-                    <i class="fa-brands fa-product-hunt" title="Producto"></i>
+                    <i class="fa-brands fa-product-hunt" title="Cuenta"></i>
                     <h4>Cuenta</h4> 
                 </div>
             </a>
@@ -69,7 +70,32 @@
       <div class="container-input">
         <div class="input">
           <label for="ubicacion" class="form-label">Ubicacion</label>
-          <input class="controls" type="text" name="ubicacion" id="ubicacion" class="form-control">
+          <!-- <input class="controls" type="text" name="ubicacion" id="ubicacion" class="form-control"> -->
+          <select name="ubicacion" id="ubicacion" class="form-select">
+            <option value="Buenos Aires">Buenos aires</option>
+            <option value="Capital federal">Capital federal</option>
+            <option value="Catamarca">Catamarca</option>
+            <option value="Chaco">Chaco</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Corrientes">Corrientes</option>
+            <option value="Entre Rios">Entre Rios</option>
+            <option value="Formosa">Formosa</option>
+            <option value="Jujuy">Jujuy</option>
+            <option value="La Pampa">La Pampa</option>
+            <option value="La rioja">La rioja</option>
+            <option value="Mendoza">Mendoza</option>
+            <option value="Misiones">Misiones</option>
+            <option value="Neuquen">Neuquen</option>
+            <option value="Río Negro">Rio Negro</option>
+            <option value="Salta">Salta</option>
+            <option value="San Juan">San Juan</option>
+            <option value="San Luis">San Luis</option>
+            <option value="Santa Cruz">Santa Cruz</option>
+            <option value="Santa Fe">Santa Fe</option>
+            <option value="Santiago del Estero">Santiago del Estero</option>
+            <option value="Tierra del fuego">Tierra del fuego</option>
+            <option value="Tucuman">Tucuman</option>
+          </select>
         </div>
         <div class="input">
           <label for="requisitos" class="form-label">Requisitos</label>

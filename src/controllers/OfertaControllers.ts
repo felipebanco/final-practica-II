@@ -19,7 +19,7 @@ class OfertaControllers{
         });
       } catch (err) {
         response.render("Oferta/messageOferta", {
-          message: `Error al registrar consulta: ${err.message}`
+          message: `Error al registrar oferta: ${err.message}`
         });
       }
   }
@@ -36,7 +36,7 @@ class OfertaControllers{
       });
     } catch (err) {
       response.render("Empleados/message", {
-        message: `Error al eliminar usuario: ${err.message}`
+        message: `Error al eliminar oferta: ${err.message}`
       });
     }
   } 
@@ -89,7 +89,7 @@ class OfertaControllers{
       });
     } catch (err) {
       response.render("Oferta/messageOferta", {
-        message: `Oferta al actualizar usuario: ${err.message}`
+        message: `Oferta al actualizar oferta: ${err.message}`
       });
     }
 
